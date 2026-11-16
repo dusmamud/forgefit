@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+@import '@fontsource/anton/latin-400.css';
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+
+@theme {
+	--font-display: 'Anton', 'Arial Narrow', sans-serif;
+	--font-sans: 'Inter', system-ui, sans-serif;
+	--color-ink: #0a0a0b;
+	--color-coal: #121214;
+	--color-smoke: #1b1b1e;
+	--color-line: #26262a;
+	--color-flame: #e8380d;
+	--color-flame-dark: #b92a08;
+	--color-ember: #ff5a26;
+	--color-bone: #f5f1ea;
+	--color-ash: #a3a3ab;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--color-ink);
+	color: var(--color-bone);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+}
+
+::selection {
+	background: var(--color-flame);
+	color: #fff;
+}
+
+/* Giant watermark word behind the hero (like the reference) */
+.watermark {
+	font-family: var(--font-display);
+	line-height: 0.8;
+	letter-spacing: 0.02em;
+	color: transparent;
+	-webkit-text-stroke: 1px rgb(232 56 13 / 0.22);
+	user-select: none;
+}
+
+/* Scroll-reveal: hidden until in view, instant when reduced motion is on */
+.reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition:
+		opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+		transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+	transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+	opacity: 1;
+	transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* Thin red tick used above eyebrow labels */
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--color-ember);
+}
+.eyebrow::before {
+	content: '';
+	width: 0.5rem;
+	height: 0.5rem;
+	background: var(--color-flame);
+}
