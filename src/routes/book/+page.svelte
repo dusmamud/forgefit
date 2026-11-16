@@ -92,7 +92,7 @@
 					</select>
 
 					<p class="mt-6 text-xs font-bold tracking-widest text-white uppercase">Pick a day</p>
-					<div class="mt-2 flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Day">
+					<div class="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-6" role="group" aria-label="Day">
 						{#each days as d}
 							<button
 								type="button"

@@ -25,5 +25,5 @@
 </svelte:head>
 
 <Header />
-<main class="pt-16">{@render children()}</main>
+<main class="pt-16 sm:pt-[72px]">{@render children()}</main>
 <Footer />

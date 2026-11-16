@@ -43,18 +43,18 @@
 				competitive athletes. The lesson was always the same: the programme matters less than whether someone
 				actually sticks to it — and people stick to plans built around their real life.
 			</p>
-			<div class="mt-8 grid grid-cols-3 gap-4 text-center">
-				<div class="rounded-lg border border-line bg-coal p-4">
-					<p class="font-display text-3xl text-white">10+</p>
-					<p class="mt-1 text-xs text-ash">Years coaching</p>
+			<div class="mt-8 grid grid-cols-3 gap-2 text-center sm:gap-4">
+				<div class="rounded-lg border border-line bg-coal p-3 sm:p-4">
+					<p class="font-display text-2xl text-white sm:text-3xl">10+</p>
+					<p class="mt-1 text-[11px] text-ash sm:text-xs">Years coaching</p>
 				</div>
-				<div class="rounded-lg border border-line bg-coal p-4">
-					<p class="font-display text-3xl text-white">500+</p>
-					<p class="mt-1 text-xs text-ash">Clients trained</p>
+				<div class="rounded-lg border border-line bg-coal p-3 sm:p-4">
+					<p class="font-display text-2xl text-white sm:text-3xl">500+</p>
+					<p class="mt-1 text-[11px] text-ash sm:text-xs">Clients trained</p>
 				</div>
-				<div class="rounded-lg border border-line bg-coal p-4">
-					<p class="font-display text-3xl text-white">4.9★</p>
-					<p class="mt-1 text-xs text-ash">Average rating</p>
+				<div class="rounded-lg border border-line bg-coal p-3 sm:p-4">
+					<p class="font-display text-2xl text-white sm:text-3xl">4.9★</p>
+					<p class="mt-1 text-[11px] text-ash sm:text-xs">Average rating</p>
 				</div>
 			</div>
 			<a

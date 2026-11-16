@@ -26,16 +26,16 @@
 			<p class="mt-5 max-w-md text-base leading-relaxed text-bone/75 sm:text-lg" use:reveal={100}>
 				Personal training designed around you — your goals, your pace, your results.
 			</p>
-			<div class="mt-8 flex flex-wrap items-center gap-4" use:reveal={200}>
+			<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4" use:reveal={200}>
 				<a
 					href="/book"
-					class="rounded-sm bg-flame px-6 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+					class="rounded-sm bg-flame px-6 py-3.5 text-center text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
 				>
 					Book a free session →
 				</a>
 				<a
 					href="/programs"
-					class="rounded-sm border border-white/25 px-6 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:border-white hover:bg-white/5"
+					class="rounded-sm border border-white/25 px-6 py-3.5 text-center text-sm font-bold tracking-widest text-white uppercase transition hover:border-white hover:bg-white/5"
 				>
 					View programs
 				</a>
