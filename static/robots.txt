@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://forgefit.pages.dev/sitemap.xml
+Sitemap: https://forgefits.pages.dev/sitemap.xml

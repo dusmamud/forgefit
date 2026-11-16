@@ -4,7 +4,7 @@
 
 Static site built with **Svelte 5.57.3, SvelteKit 3.2.0, Vite 8.3.8, TypeScript 6, Tailwind CSS 4.3.5** and `@sveltejs/adapter-static` (fully prerendered). Deploys automatically to Cloudflare Pages on every push to `main`.
 
-Live: https://forgefit.pages.dev
+Live: https://forgefits.pages.dev
 
 ## Pages
 

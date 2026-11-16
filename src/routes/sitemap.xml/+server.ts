@@ -2,7 +2,7 @@ import { programs, posts } from '#lib/data';
 
 export const prerender = true;
 
-const base = 'https://forgefit.pages.dev';
+const base = 'https://forgefits.pages.dev';
 const staticPages = ['', '/programs', '/results', '/pricing', '/blog', '/about', '/book', '/contact', '/privacy', '/terms'];
 
 export function GET() {
