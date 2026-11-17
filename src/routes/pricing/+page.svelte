@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { pricing, faqs } from '#lib/data';
+	import { pricing, faqs, testimonials, comparisonRows } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import { speakableJsonLd } from '#lib/seo';
 
@@ -80,6 +80,34 @@
 		{/each}
 	</div>
 
+	<div class="mx-auto mt-16 max-w-5xl" use:reveal>
+		<h2 class="text-center font-display text-3xl tracking-wide text-white uppercase sm:text-4xl">
+			Compare plans side by side
+		</h2>
+		<div class="mt-8 overflow-x-auto rounded-lg border border-line">
+			<table class="w-full min-w-[560px] text-left text-sm">
+				<thead>
+					<tr class="border-b border-line bg-coal text-white">
+						<th class="px-5 py-4 font-bold">What is included</th>
+						{#each pricing as plan}
+							<th class="px-5 py-4 font-bold">{plan.name}<br /><span class="font-normal text-flame">{plan.price}{plan.per}</span></th>
+						{/each}
+					</tr>
+				</thead>
+				<tbody>
+					{#each comparisonRows as row, ri}
+						<tr class="border-b border-line last:border-0 {ri % 2 === 1 ? 'bg-coal/60' : 'bg-ink'}">
+							<td class="px-5 py-3.5 text-bone/85">{row.label}</td>
+							{#each row.values as v}
+								<td class="px-5 py-3.5 {v === '✓' ? 'font-bold text-flame' : 'text-ash'}">{v}</td>
+							{/each}
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
 	<div class="mx-auto mt-12 max-w-3xl rounded-lg border border-line bg-coal p-6 text-sm leading-relaxed text-ash" use:reveal>
 		<p>
 			<strong class="text-white">Single sessions:</strong> 1-on-1 ₹2,499 · Group ₹999. <strong class="text-white"
@@ -87,5 +115,20 @@
 			> up to 2 weeks per quarter. <strong class="text-white">Cancellation:</strong> 7 days notice; unused 1-on-1 sessions
 			refundable within 30 days. Prices include GST. Gym membership included for in-person plans.
 		</p>
+	</div>
+
+	<div class="mx-auto mt-12 max-w-5xl" use:reveal>
+		<h2 class="text-center font-display text-3xl tracking-wide text-white uppercase">What clients say after joining</h2>
+		<div class="mt-8 grid gap-4 md:grid-cols-3">
+			{#each testimonials as t, i}
+				<figure class="rounded-lg border border-line bg-coal p-5" use:reveal={i * 80}>
+					<p class="text-lg tracking-widest text-flame" aria-label="5 out of 5 stars">★★★★★</p>
+					<blockquote class="mt-3 text-sm leading-relaxed text-bone/85">“{t.quote}”</blockquote>
+					<figcaption class="mt-4 text-sm font-semibold text-white">
+						{t.name} <span class="font-normal text-flame">· {t.role}</span>
+					</figcaption>
+				</figure>
+			{/each}
+		</div>
 	</div>
 </section>

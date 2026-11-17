@@ -13,6 +13,9 @@
 - [Book a free session](https://forgefits.pages.dev/book): Pick a programme, day and time slot. Demo booking — no data leaves the browser yet.
 - [FAQ](https://forgefits.pages.dev/faq): Beginners, gym membership, what to bring, pausing/cancelling, vegetarian diet plans, injuries.
 - [Fitness tools](https://forgefits.pages.dev/tools): Free BMI calculator and daily calorie (TDEE) calculator.
+- [Free 7-day starter plan](https://forgefits.pages.dev/free-guide): A free week of training — assess, lift, recover, repeat.
+- [30-day Forge Challenge](https://forgefits.pages.dev/challenges): Four weeks, four focuses — free to join, starts any Monday.
+- [Search](https://forgefits.pages.dev/search): Search programs, articles, FAQs, tools and pages.
 - [Contact](https://forgefits.pages.dev/contact): +91 98765 43210, train@forgefit.in, Andheri West, Mumbai. Mon–Sat, 6 AM – 9 PM.
 - [Refund Policy](https://forgefits.pages.dev/refund-policy)
 - [Disclaimer](https://forgefits.pages.dev/disclaimer)

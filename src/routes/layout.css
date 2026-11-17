@@ -98,6 +98,43 @@ body {
 	}
 }
 
+/* Marquee ticker strip (pauses on hover, still under reduced motion) */
+.marquee-track {
+	display: flex;
+	width: max-content;
+	animation: marquee 28s linear infinite;
+}
+.marquee:hover .marquee-track {
+	animation-play-state: paused;
+}
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.marquee-track {
+		animation: none;
+	}
+}
+
+/* Card image zoom + arrow nudge on hover */
+.card-zoom img {
+	transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-zoom:hover img {
+	transform: scale(1.07);
+}
+.card-zoom .card-arrow {
+	transition: transform 0.3s ease;
+}
+.card-zoom:hover .card-arrow {
+	transform: translateX(4px);
+}
+
 /* Thin red tick used above eyebrow labels */
 .eyebrow {
 	display: inline-flex;

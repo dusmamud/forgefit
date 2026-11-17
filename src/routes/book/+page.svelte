@@ -104,6 +104,16 @@
 				Prefer to talk first? Call <a class="font-semibold text-white" href="tel:+919876543210">+91 98765 43210</a><br />
 				Mon–Sat, 6 AM – 9 PM · Andheri West, Mumbai
 			</p>
+			<figure class="mt-8 rounded-lg border border-line bg-coal p-5">
+				<p class="text-lg tracking-widest text-flame" aria-label="5 out of 5 stars">★★★★★</p>
+				<blockquote class="mt-3 text-sm leading-relaxed text-bone/85">
+					“I had joined three gyms before and quit all of them. Arjun is the first coach who actually tracked
+					everything — my food, my sleep, my lifts. 14 kilos down, and I have kept it off for a year.”
+				</blockquote>
+				<figcaption class="mt-3 text-sm font-semibold text-white">
+					Rohan Sharma <span class="font-normal text-flame">· Lost 14 kg in 5 months</span>
+				</figcaption>
+			</figure>
 		</div>
 
 		<div class="lg:col-span-3" use:reveal={120}>

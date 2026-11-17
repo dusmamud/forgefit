@@ -34,6 +34,9 @@
 					<li><a class="hover:text-white" href="/about">About</a></li>
 					<li><a class="hover:text-white" href="/faq">FAQ</a></li>
 					<li><a class="hover:text-white" href="/tools">BMI &amp; Calorie Tools</a></li>
+					<li><a class="hover:text-white" href="/free-guide">Free 7-Day Plan</a></li>
+					<li><a class="hover:text-white" href="/challenges">30-Day Challenge</a></li>
+					<li><a class="hover:text-white" href="/search">Search</a></li>
 				</ul>
 			</nav>
 

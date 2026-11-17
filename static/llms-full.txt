@@ -64,6 +64,11 @@ Policies: monthly plans can be paused up to 2 weeks per quarter and cancelled wi
 - BMI calculator: weight relative to height, with category (underweight / healthy / overweight / obese).
 - Calorie calculator: daily maintenance calories (TDEE) via Mifflin-St Jeor, plus protein target 1.4–2 g/kg. Fat-loss and muscle-gain estimates included.
 
+## Free guide and challenge
+
+- Free 7-day starter plan (https://forgefits.pages.dev/free-guide): Day 1 assess, Day 2 walk + protein, Day 3 full-body session 1, Day 4 rest + sleep, Day 5 full-body session 2, Day 6 conditioning, Day 7 review + next step.
+- 30-day Forge Challenge (https://forgefits.pages.dev/challenges): Week 1 build the base, Week 2 add the load, Week 3 push the pace, Week 4 prove it. Free to join, starts any Monday. Finishers get a free assessment and a month-2 plan.
+
 ## Booking
 
 Book a free 30-minute session at https://forgefits.pages.dev/book — choose a programme, pick one of the next 6 days, pick a time slot (6:00 AM – 8:30 PM), leave your name and phone. Demo booking — no data leaves the browser yet.

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { site } from '#lib/data';
+	import { site, certifications } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import { speakableJsonLd } from '#lib/seo';
 
@@ -78,6 +78,19 @@
 			>
 				Train with {site.coach.split(' ')[0]} →
 			</a>
+		</div>
+	</div>
+
+	<div class="mt-20" use:reveal>
+		<p class="eyebrow">Certifications — as issued</p>
+		<h2 class="mt-4 font-display text-4xl tracking-wide text-white uppercase sm:text-5xl">Qualified, not just loud</h2>
+		<div class="mt-8 grid gap-4 sm:grid-cols-2">
+			{#each certifications as c, i}
+				<div class="rounded-lg border border-line bg-coal p-6" use:reveal={i * 80}>
+					<p class="font-display text-xl tracking-wide text-white uppercase">{c.name}</p>
+					<p class="mt-2 text-sm text-ash">{c.issuer} · {c.year}</p>
+				</div>
+			{/each}
 		</div>
 	</div>
 

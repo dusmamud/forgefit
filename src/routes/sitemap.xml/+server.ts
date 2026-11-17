@@ -14,6 +14,8 @@ const staticPages = [
 	'/contact',
 	'/faq',
 	'/tools',
+	'/free-guide',
+	'/challenges',
 	'/privacy',
 	'/terms',
 	'/refund-policy',

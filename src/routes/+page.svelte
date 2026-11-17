@@ -1,9 +1,34 @@
 <script lang="ts">
-	import { programs, posts, testimonials, pricing, faqs, site } from '#lib/data';
+	import { programs, posts, pricing, faqs, site, whoItsFor } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import { speakableJsonLd } from '#lib/seo';
+	import Counter from '#lib/components/Counter.svelte';
+	import TestimonialSlider from '#lib/components/TestimonialSlider.svelte';
 
 	let openFaq = $state<number | null>(0);
+
+	// Hero parallax: watermark drifts down, trainer lifts slightly on scroll.
+	// Off entirely under prefers-reduced-motion.
+	let scrollY = $state(0);
+	let reducedMotion = $state(false);
+	$effect(() => {
+		reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reducedMotion) return;
+		let raf = 0;
+		const onScroll = () => {
+			cancelAnimationFrame(raf);
+			raf = requestAnimationFrame(() => {
+				scrollY = window.scrollY;
+			});
+		};
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => {
+			window.removeEventListener('scroll', onScroll);
+			cancelAnimationFrame(raf);
+		};
+	});
+
+	const marqueeItems = ['Strength', 'Nutrition', 'Discipline', 'Results', 'No shortcuts'];
 </script>
 
 <svelte:head>
@@ -13,13 +38,14 @@
 <!-- ============ HERO ============ -->
 <section class="relative overflow-hidden bg-[radial-gradient(90%_90%_at_70%_10%,#7a1d05_0%,#3d0f02_38%,#0a0a0b_78%)]">
 	<p
-		class="watermark pointer-events-none absolute top-16 left-1/2 -translate-x-1/2 text-[26vw] whitespace-nowrap opacity-100 select-none lg:top-6 lg:text-[19rem]"
+		class="watermark pointer-events-none absolute top-16 left-1/2 -translate-x-1/2 text-[26vw] whitespace-nowrap opacity-100 select-none lg:top-2 lg:text-[21rem]"
 		aria-hidden="true"
+		style:translate="-50% {reducedMotion ? 0 : scrollY * 0.22}px"
 	>
 		FORGEFIT
 	</p>
 
-	<div class="relative mx-auto grid max-w-7xl gap-2 px-4 pt-10 pb-0 sm:px-6 lg:min-h-[720px] lg:grid-cols-12 lg:px-8 lg:pt-16">
+	<div class="relative mx-auto grid max-w-7xl gap-2 px-4 pt-10 pb-0 sm:px-6 lg:min-h-[780px] lg:grid-cols-12 lg:px-8 lg:pt-16">
 		<div class="relative z-10 flex flex-col justify-center lg:col-span-7 lg:pb-24">
 			<p class="eyebrow" use:reveal>Certified Personal Trainer</p>
 			<h1
@@ -54,10 +80,11 @@
 			<img
 				src="/images/hero-trainer.png"
 				alt="ForgeFit head coach {site.coach} — certified personal trainer, arms crossed in a red tank top"
-				class="mx-auto w-full max-w-[420px] lg:absolute lg:right-0 lg:bottom-0 lg:h-[600px] lg:w-auto lg:max-w-none xl:h-[680px]"
+				class="mx-auto w-full max-w-[420px] lg:absolute lg:right-0 lg:bottom-0 lg:h-[700px] lg:w-auto lg:max-w-none xl:h-[740px]"
 				width="1600"
 				height="1600"
 				fetchpriority="high"
+				style:transform="translateY({reducedMotion ? 0 : scrollY * -0.05}px)"
 			/>
 		</div>
 	</div>
@@ -66,13 +93,13 @@
 	<div class="relative z-10 mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:-mt-8 lg:px-8 lg:pb-14">
 		<div class="grid gap-4 sm:grid-cols-2 lg:ml-auto lg:max-w-xl">
 			<div class="rounded-lg bg-flame/90 p-5 shadow-2xl backdrop-blur" use:reveal>
-				<p class="font-display text-5xl text-white">100%</p>
+				<p class="font-display text-5xl text-white"><Counter value={100} suffix="%" /></p>
 				<p class="mt-2 text-sm leading-snug text-white/85">
 					Client Satisfaction Guaranteed — every program is built around your goals.
 				</p>
 			</div>
 			<div class="rounded-lg bg-white/10 p-5 shadow-2xl ring-1 ring-white/15 backdrop-blur" use:reveal={120}>
-				<p class="font-display text-5xl text-white">500+</p>
+				<p class="font-display text-5xl text-white"><Counter value={500} suffix="+" /></p>
 				<p class="mt-2 text-sm leading-snug text-white/85">
 					Clients Trained. Real people, real results — from beginners to athletes.
 				</p>
@@ -80,6 +107,17 @@
 		</div>
 	</div>
 </section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee overflow-hidden border-y border-line bg-flame py-3" aria-hidden="true">
+	<div class="marquee-track items-center gap-8">
+		{#each [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems] as item}
+			<span class="flex items-center gap-8 font-display text-xl tracking-widest whitespace-nowrap text-white uppercase">
+				{item} <span class="text-white/60">✦</span>
+			</span>
+		{/each}
+	</div>
+</div>
 
 <!-- ============ PROGRAMS ============ -->
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -108,7 +146,7 @@
 		{#each programs as program, i}
 			<a
 				href="/programs/{program.slug}"
-				class="group relative flex flex-col overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
+				class="card-zoom group relative flex flex-col overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
 				class:bg-flame={i === 2}
 				class:border-flame={i === 2}
 				use:reveal={i * 100}
@@ -116,7 +154,7 @@
 				<img
 					src={program.image}
 					alt={program.title}
-					class="aspect-[16/10] w-full object-cover opacity-90 transition group-hover:scale-[1.03]"
+					class="aspect-[16/10] w-full object-cover opacity-90"
 					loading="lazy"
 					width="800"
 					height="500"
@@ -131,10 +169,28 @@
 							? 'text-white'
 							: 'text-flame'}"
 					>
-						Learn more →
+						Learn more <span class="card-arrow" aria-hidden="true">→</span>
 					</span>
 				</div>
 			</a>
+		{/each}
+	</div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+	<div use:reveal>
+		<p class="eyebrow">Who I train</p>
+		<h2 class="mt-4 font-display text-4xl leading-[0.95] tracking-wide text-white uppercase sm:text-5xl">
+			Built for<br />people like you
+		</h2>
+	</div>
+	<div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+		{#each whoItsFor as w, i}
+			<div class="rounded-lg border border-line bg-coal p-6" use:reveal={i * 100}>
+				<p class="font-display text-2xl tracking-wide text-white uppercase">{w.title}</p>
+				<p class="mt-3 text-sm leading-relaxed text-ash">{w.desc}</p>
+			</div>
 		{/each}
 	</div>
 </section>
@@ -199,21 +255,12 @@
 		</a>
 	</div>
 
-	<div class="mt-10 grid gap-4 md:grid-cols-3">
-		{#each testimonials as t, i}
-			<figure class="flex flex-col rounded-lg border border-line bg-coal p-6" use:reveal={i * 100}>
-				<p class="text-2xl tracking-widest text-flame" aria-label="5 out of 5 stars">★★★★★</p>
-				<blockquote class="mt-4 grow leading-relaxed text-bone/85">“{t.quote}”</blockquote>
-				<figcaption class="mt-6 flex items-center gap-3 border-t border-line pt-5">
-					<img src={t.image} alt={t.name} class="size-12 rounded-full object-cover" loading="lazy" width="96" height="96" />
-					<div>
-						<p class="font-semibold text-white">{t.name}</p>
-						<p class="text-xs text-flame">{t.role}</p>
-					</div>
-				</figcaption>
-			</figure>
-		{/each}
+	<div class="mt-10" use:reveal>
+		<TestimonialSlider />
 	</div>
+	<p class="mt-6 text-center text-sm text-ash">
+		<a href="/results" class="font-semibold text-flame hover:text-ember">See all transformations →</a>
+	</p>
 </section>
 
 <!-- ============ PRICING TEASER ============ -->
@@ -361,5 +408,11 @@
 		>
 			Book a free session →
 		</a>
+		<p class="mt-5 text-sm text-ash">
+			Not ready to book? Start free instead —
+			<a href="/free-guide" class="font-semibold text-flame hover:text-ember">get the 7-day starter plan</a>
+			or take the
+			<a href="/challenges" class="font-semibold text-flame hover:text-ember">30-day Forge Challenge</a>.
+		</p>
 	</div>
 </section>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { groupSchedule } from '#lib/data';
+	import { groupSchedule, sampleDay } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import type { PageProps } from './$types';
 
@@ -97,6 +97,31 @@
 			</p>
 		</aside>
 	</div>
+
+	{#if program.slug === 'nutrition-planning'}
+		<div class="mt-16" use:reveal>
+			<h2 class="font-display text-3xl tracking-wide text-white uppercase">A sample day of eating</h2>
+			<p class="mt-2 max-w-xl text-sm leading-relaxed text-ash">
+				Real Indian food, not a supplement list. Your plan is built around your calories and protein target —
+				this is what one day can look like.
+			</p>
+			<div class="mt-6 grid gap-4 md:grid-cols-2">
+				{#each [{ label: 'Vegetarian', meals: sampleDay.veg }, { label: 'Non-vegetarian', meals: sampleDay.nonveg }] as option}
+					<div class="rounded-lg border border-line bg-coal p-6">
+						<h3 class="font-display text-2xl tracking-wide text-white uppercase">{option.label}</h3>
+						<ul class="mt-4 space-y-3 text-sm">
+							{#each option.meals as m}
+								<li class="border-b border-line pb-3 last:border-0 last:pb-0">
+									<p class="text-xs font-bold tracking-widest text-flame uppercase">{m.meal}</p>
+									<p class="mt-1 leading-relaxed text-bone/85">{m.items}</p>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/each}
+			</div>
+		</div>
+	{/if}
 
 	{#if program.slug === 'group-training'}
 		<div class="mt-16" use:reveal>

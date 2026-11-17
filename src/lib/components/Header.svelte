@@ -4,6 +4,7 @@
 
 	let open = $state(false);
 	let scrolled = $state(false);
+	let progress = $state(0);
 
 	const links = [
 		{ href: '/programs', label: 'Programs' },
@@ -21,6 +22,8 @@
 	$effect(() => {
 		const onScroll = () => {
 			scrolled = window.scrollY > 16;
+			const max = document.documentElement.scrollHeight - window.innerHeight;
+			progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
 		};
 		onScroll();
 		window.addEventListener('scroll', onScroll, { passive: true });
@@ -47,6 +50,10 @@
 		? 'border-b border-white/10 bg-ink/90 shadow-lg shadow-black/40 backdrop-blur-md'
 		: 'border-b border-transparent bg-transparent'}"
 >
+	<!-- Scroll progress bar -->
+	<div class="absolute inset-x-0 top-0 h-[3px] bg-transparent" aria-hidden="true">
+		<div class="h-full bg-flame transition-[width] duration-100" style="width: {progress * 100}%"></div>
+	</div>
 	<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-[72px] sm:px-6 lg:px-8">
 		<a href="/" class="flex shrink-0 items-center gap-2.5" onclick={close} aria-label="ForgeFit home">
 			<span class="grid size-9 place-items-center rounded-md bg-flame font-display text-lg text-white shadow-[0_0_20px_-4px_#e8380d]">F</span>

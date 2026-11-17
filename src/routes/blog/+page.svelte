@@ -2,6 +2,10 @@
 	import { posts } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import { speakableJsonLd } from '#lib/seo';
+
+	let category = $state('All');
+	const categories = ['All', ...new Set(posts.map((p) => p.category))];
+	const filtered = $derived(category === 'All' ? posts : posts.filter((p) => p.category === category));
 </script>
 
 <svelte:head>
@@ -23,17 +27,30 @@
 		clients — no filler, no fads.
 	</p>
 
-	<div class="mt-12 grid gap-4 md:grid-cols-3">
-		{#each posts as post, i}
+	<div class="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter articles by category" use:reveal>
+		{#each categories as c}
+			<button
+				type="button"
+				aria-pressed={category === c}
+				class="rounded-full border px-4 py-2 text-sm font-semibold transition {category === c
+					? 'border-flame bg-flame text-white'
+					: 'border-line bg-coal text-bone/85 hover:border-flame hover:text-white'}"
+				onclick={() => (category = c)}>{c}</button
+			>
+		{/each}
+	</div>
+
+	<div class="mt-8 grid gap-4 md:grid-cols-3">
+		{#each filtered as post, i}
 			<a
 				href="/blog/{post.slug}"
-				class="group overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
+				class="card-zoom group overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
 				use:reveal={i * 100}
 			>
 				<img
 					src={post.image}
 					alt={post.title}
-					class="aspect-[16/10] w-full object-cover transition group-hover:scale-[1.03]"
+					class="aspect-[16/10] w-full object-cover"
 					loading="lazy"
 					width="800"
 					height="500"
