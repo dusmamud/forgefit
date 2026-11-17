@@ -14,7 +14,7 @@
 		FORGEFIT
 	</p>
 
-	<div class="relative mx-auto grid max-w-7xl gap-2 px-4 pt-10 pb-0 sm:px-6 lg:min-h-[640px] lg:grid-cols-12 lg:px-8 lg:pt-16">
+	<div class="relative mx-auto grid max-w-7xl gap-2 px-4 pt-10 pb-0 sm:px-6 lg:min-h-[720px] lg:grid-cols-12 lg:px-8 lg:pt-16">
 		<div class="relative z-10 flex flex-col justify-center lg:col-span-7 lg:pb-24">
 			<p class="eyebrow" use:reveal>Certified Personal Trainer</p>
 			<h1
@@ -49,7 +49,7 @@
 			<img
 				src="/images/hero-trainer.png"
 				alt="ForgeFit head coach {site.coach} — certified personal trainer, arms crossed in a red tank top"
-				class="mx-auto w-full max-w-[420px] lg:absolute lg:right-0 lg:bottom-0 lg:max-w-[520px]"
+				class="mx-auto w-full max-w-[420px] lg:absolute lg:right-0 lg:bottom-0 lg:h-[600px] lg:w-auto lg:max-w-none xl:h-[680px]"
 				width="1600"
 				height="1600"
 				fetchpriority="high"
@@ -58,7 +58,7 @@
 	</div>
 
 	<!-- Stat cards overlapping the hero bottom -->
-	<div class="relative z-10 mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:-mt-24 lg:px-8 lg:pb-14">
+	<div class="relative z-10 mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:-mt-8 lg:px-8 lg:pb-14">
 		<div class="grid gap-4 sm:grid-cols-2 lg:ml-auto lg:max-w-xl">
 			<div class="rounded-lg bg-flame/90 p-5 shadow-2xl backdrop-blur" use:reveal>
 				<p class="font-display text-5xl text-white">100%</p>
