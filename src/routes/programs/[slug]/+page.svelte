@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { groupSchedule } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import type { PageProps } from './$types';
 
@@ -62,6 +63,23 @@
 			</p>
 		</aside>
 	</div>
+
+	{#if program.slug === 'group-training'}
+		<div class="mt-16" use:reveal>
+			<h2 class="font-display text-3xl tracking-wide text-white uppercase">Weekly schedule</h2>
+			<p class="mt-2 max-w-xl text-sm leading-relaxed text-ash">
+				Small batches, never more than 8 people. Book your batch from the <a class="font-semibold text-flame" href="/book?program=group-training">booking page</a> — pick a day and a slot.
+			</p>
+			<div class="mt-6 overflow-hidden rounded-lg border border-line">
+				{#each groupSchedule as row, i}
+					<div class="grid gap-1 border-b border-line bg-coal px-5 py-4 last:border-0 sm:grid-cols-[140px_1fr] sm:gap-4 {i % 2 === 1 ? 'bg-smoke/60' : ''}">
+						<p class="font-display text-lg tracking-wide text-white uppercase">{row.day}</p>
+						<p class="text-sm leading-relaxed text-bone/85">{row.sessions.join(' · ')}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	{/if}
 
 	<h2 class="mt-16 font-display text-3xl tracking-wide text-white uppercase" use:reveal>Other programs</h2>
 	<div class="mt-6 grid gap-4 sm:grid-cols-3">

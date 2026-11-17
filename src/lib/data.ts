@@ -243,5 +243,65 @@ export const faqs = [
 	{
 		q: 'Do you offer diet plans for vegetarians?',
 		a: 'Yes. Most of our meal plans are built around Indian vegetarian food first — paneer, dal, curd, soya — with non-veg options only if you want them.'
+	},
+	{
+		q: 'What if I have an old injury?',
+		a: 'Tell us in your first session. We screen movement, work around the injury, and adjust every exercise — many clients come to us exactly because of a bad knee, back or shoulder.'
+	},
+	{
+		q: 'Can I train with a friend or partner?',
+		a: 'Yes. Two people can share a 1-on-1 slot at a small extra charge, and group batches are built for training together. Book one free session and bring them along.'
+	},
+	{
+		q: 'Is there a minimum commitment?',
+		a: 'No lock-in on monthly plans — one month at a time, cancel with 7 days notice. Single sessions can be booked one at a time with no commitment at all.'
 	}
+];
+
+// Transformation stories (mock) — metrics behind the quotes on /results.
+export const transformations = [
+	{
+		name: 'Rohan Sharma',
+		image: '/images/client-rohan.jpg',
+		programme: '1-on-1 + Nutrition',
+		duration: '20 weeks',
+		metrics: [
+			{ label: 'Weight', from: '92 kg', to: '78 kg' },
+			{ label: 'Waist', from: '38 in', to: '32 in' },
+			{ label: 'Body fat', from: '31%', to: '21%' }
+		]
+	},
+	{
+		name: 'Priya Nair',
+		image: '/images/client-priya.jpg',
+		programme: 'Online Programme',
+		duration: '12 weeks',
+		metrics: [
+			{ label: 'Pull-ups', from: '0', to: '1 (first ever)' },
+			{ label: 'Weight', from: '68 kg', to: '64 kg' },
+			{ label: 'Sessions', from: '0 / week', to: '4 / week' }
+		]
+	},
+	{
+		name: 'Kabir Malhotra',
+		image: '/images/client-kabir.jpg',
+		programme: '1-on-1 + Nutrition',
+		duration: '24 weeks',
+		metrics: [
+			{ label: 'Weight', from: '68 kg', to: '74 kg lean' },
+			{ label: 'Bench press', from: '60 kg', to: '100 kg' },
+			{ label: 'Body fat', from: '18%', to: '13%' }
+		]
+	}
+];
+
+// Weekly group-training timetable (mock) — Mon–Sat batches, Sunday rest.
+export const groupSchedule = [
+	{ day: 'Monday', sessions: ['6:30 AM · Strength', '8:00 AM · Conditioning', '5:30 PM · Strength', '7:00 PM · Conditioning'] },
+	{ day: 'Tuesday', sessions: ['6:30 AM · Strength', '8:00 AM · Conditioning', '5:30 PM · Strength', '7:00 PM · Conditioning'] },
+	{ day: 'Wednesday', sessions: ['6:30 AM · Strength', '8:00 AM · Conditioning', '5:30 PM · Strength', '7:00 PM · Conditioning'] },
+	{ day: 'Thursday', sessions: ['6:30 AM · Strength', '8:00 AM · Conditioning', '5:30 PM · Strength', '7:00 PM · Conditioning'] },
+	{ day: 'Friday', sessions: ['6:30 AM · Strength', '8:00 AM · Conditioning', '5:30 PM · Strength', '7:00 PM · Conditioning'] },
+	{ day: 'Saturday', sessions: ['8:00 AM · Strength', '9:30 AM · Conditioning', '5:30 PM · Open gym + coach'] },
+	{ day: 'Sunday', sessions: ['Rest day — online check-ins only'] }
 ];

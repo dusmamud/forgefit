@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { testimonials } from '#lib/data';
+	import { testimonials, transformations } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 </script>
 
@@ -30,6 +30,45 @@
 			<p class="font-display text-6xl text-white">4.9/5</p>
 			<p class="mt-1 text-sm text-ash">Average rating · 200+ reviews</p>
 		</div>
+	</div>
+
+	<div class="mt-16" use:reveal>
+		<p class="eyebrow">Transformations</p>
+		<h2 class="mt-4 font-display text-4xl leading-[0.95] tracking-wide text-white uppercase sm:text-5xl">
+			The numbers<br />behind the stories
+		</h2>
+	</div>
+
+	<div class="mt-10 grid gap-4 md:grid-cols-3">
+		{#each transformations as t, i}
+			<article class="overflow-hidden rounded-lg border border-line bg-coal" use:reveal={i * 100}>
+				<div class="flex items-center gap-4 p-6 pb-0">
+					<img src={t.image} alt={t.name} class="size-14 rounded-full object-cover" loading="lazy" width="112" height="112" />
+					<div>
+						<h3 class="font-display text-xl tracking-wide text-white uppercase">{t.name}</h3>
+						<p class="text-xs text-flame">{t.programme} · {t.duration}</p>
+					</div>
+				</div>
+				<ul class="space-y-3 p-6">
+					{#each t.metrics as m}
+						<li class="flex items-center justify-between gap-3 border-b border-line pb-3 text-sm last:border-0 last:pb-0">
+							<span class="text-ash">{m.label}</span>
+							<span class="text-bone/85">
+								{m.from} <span class="mx-1 text-flame" aria-hidden="true">→</span>
+								<strong class="text-white">{m.to}</strong>
+							</span>
+						</li>
+					{/each}
+				</ul>
+			</article>
+		{/each}
+	</div>
+
+	<div class="mt-16" use:reveal>
+		<p class="eyebrow">In their words</p>
+		<h2 class="mt-4 font-display text-4xl leading-[0.95] tracking-wide text-white uppercase sm:text-5xl">
+			What clients<br />say
+		</h2>
 	</div>
 
 	<div class="mt-10 grid gap-4 md:grid-cols-3">

@@ -3,7 +3,22 @@ import { programs, posts } from '#lib/data';
 export const prerender = true;
 
 const base = 'https://forgefits.pages.dev';
-const staticPages = ['', '/programs', '/results', '/pricing', '/blog', '/about', '/book', '/contact', '/privacy', '/terms'];
+const staticPages = [
+	'',
+	'/programs',
+	'/results',
+	'/pricing',
+	'/blog',
+	'/about',
+	'/book',
+	'/contact',
+	'/faq',
+	'/tools',
+	'/privacy',
+	'/terms',
+	'/refund-policy',
+	'/disclaimer'
+];
 
 export function GET() {
 	const urls = [

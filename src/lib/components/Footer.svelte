@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { site } from '#lib/data';
+
+	let email = $state('');
+	let subscribed = $state(false);
 </script>
 
 <footer class="border-t border-white/10 bg-coal">
@@ -29,6 +32,8 @@
 					<li><a class="hover:text-white" href="/pricing">Pricing</a></li>
 					<li><a class="hover:text-white" href="/blog">Blog</a></li>
 					<li><a class="hover:text-white" href="/about">About</a></li>
+					<li><a class="hover:text-white" href="/faq">FAQ</a></li>
+					<li><a class="hover:text-white" href="/tools">BMI &amp; Calorie Tools</a></li>
 				</ul>
 			</nav>
 
@@ -60,11 +65,50 @@
 			</div>
 		</div>
 
+		<div class="mt-12 rounded-lg border border-line bg-ink p-6">
+			<h3 class="font-display text-xl tracking-wide text-white uppercase">One useful email a week</h3>
+			<p class="mt-2 text-sm text-ash">
+				Training tip, one recipe, one client story. No spam, unsubscribe anytime.
+			</p>
+			{#if subscribed}
+				<p class="mt-4 rounded-sm bg-flame/10 px-4 py-3 text-sm font-semibold text-white">
+					Thanks — you are on the list. Your first email lands this week.
+				</p>
+			{:else}
+				<form
+					class="mt-4 flex flex-col gap-2 sm:flex-row"
+					onsubmit={(e) => {
+						e.preventDefault();
+						if (email.includes('@')) subscribed = true;
+					}}
+				>
+					<label class="sr-only" for="newsletter-email">Email address</label>
+					<input
+						id="newsletter-email"
+						type="email"
+						required
+						bind:value={email}
+						placeholder="you@example.com"
+						class="w-full rounded-sm border border-line bg-coal px-4 py-3 text-white outline-none placeholder:text-ash focus:border-flame"
+					/>
+					<button
+						type="submit"
+						class="shrink-0 rounded-sm bg-flame px-6 py-3 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+					>
+						Subscribe
+					</button>
+				</form>
+				<p class="mt-2 text-xs text-ash">Demo signup — nothing is sent anywhere yet.</p>
+			{/if}
+		</div>
+
 		<div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-ash sm:flex-row sm:items-center sm:justify-between">
 			<p>© 2026 ForgeFit. All rights reserved.</p>
-			<p class="flex gap-5">
+			<p class="flex flex-wrap gap-5">
 				<a class="hover:text-white" href="/privacy">Privacy Policy</a>
 				<a class="hover:text-white" href="/terms">Terms</a>
+				<a class="hover:text-white" href="/refund-policy">Refund Policy</a>
+				<a class="hover:text-white" href="/disclaimer">Disclaimer</a>
 			</p>
 		</div>
 	</div>

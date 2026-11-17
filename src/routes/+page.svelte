@@ -315,9 +315,12 @@
 		<div class="text-center" use:reveal>
 			<p class="eyebrow justify-center">Before you ask</p>
 			<h2 class="mt-4 font-display text-4xl tracking-wide text-white uppercase sm:text-5xl">Questions, answered</h2>
+			<p class="mt-4 text-sm">
+				<a href="/faq" class="font-semibold text-flame hover:text-ember">View all FAQs →</a>
+			</p>
 		</div>
 		<div class="mt-10 space-y-3">
-			{#each faqs as faq, i}
+			{#each faqs.slice(0, 5) as faq, i}
 				<div class="overflow-hidden rounded-lg border border-line bg-ink" use:reveal={i * 60}>
 					<button
 						type="button"

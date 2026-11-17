@@ -3,18 +3,39 @@
 	import { programs } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 
-	const days = ['Tue 17', 'Wed 18', 'Thu 19', 'Fri 20', 'Sat 21', 'Sun 22'];
+	// Days always roll forward: the next 6 days from today, so the picker
+	// never goes stale (the old list was hardcoded to 17–22 Nov 2026).
+	const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+	function nextDays(n: number): string[] {
+		const out: string[] = [];
+		const today = new Date();
+		for (let i = 0; i < n; i++) {
+			const d = new Date(today);
+			d.setDate(today.getDate() + i);
+			out.push(`${dayNames[d.getDay()]} ${d.getDate()}`);
+		}
+		return out;
+	}
+	let days = $state(nextDays(6));
 	const slots = ['6:00 AM', '7:30 AM', '9:00 AM', '11:00 AM', '4:00 PM', '5:30 PM', '7:00 PM', '8:30 PM'];
-	const booked = new Set(['Wed 18 · 7:30 AM', 'Fri 20 · 7:00 PM']);
+	const booked = $derived(new Set([`${days[1]} · 7:30 AM`, `${days[3]} · 7:00 PM`]));
 
 	let program = $state(programs[0].slug);
 
 	// searchParams is unavailable during prerendering, so read it only in the browser.
+	// The day list is also refreshed here so it always starts from the visitor's today,
+	// not from the date the site was built. The write is guarded (only when the first
+	// day actually changed) — an unconditional write would re-trigger this effect forever.
 	$effect(() => {
 		const wanted = page.url.searchParams.get('program');
 		if (wanted && programs.some((p) => p.slug === wanted)) program = wanted;
+		const fresh = nextDays(6);
+		if (fresh[0] !== days[0]) {
+			days = fresh;
+			if (!fresh.includes(day)) day = fresh[0];
+		}
 	});
-	let day = $state(days[0]);
+	let day = $state(nextDays(6)[0]);
 	let slot = $state<string | null>(null);
 	let name = $state('');
 	let phone = $state('');
