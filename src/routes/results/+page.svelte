@@ -1,6 +1,21 @@
 <script lang="ts">
 	import { testimonials, transformations } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
+
+	const reviewsJsonLd = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'ForgeFit',
+		url: 'https://forgefits.pages.dev/',
+		aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '200' },
+		review: testimonials.map((t) => ({
+			'@type': 'Review',
+			author: { '@type': 'Person', name: t.name },
+			reviewBody: t.quote,
+			reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }
+		}))
+	});
 </script>
 
 <svelte:head>
@@ -9,6 +24,8 @@
 		name="description"
 		content="Real ForgeFit client results: fat loss, muscle gain, first pull-ups. 500+ clients trained, 100% satisfaction."
 	/>
+	{@html `<script type="application/ld+json">${reviewsJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -16,6 +33,10 @@
 	<h1 class="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-white uppercase sm:text-7xl" use:reveal>
 		Results that<br />speak first
 	</h1>
+	<p class="speakable mt-5 max-w-2xl leading-relaxed text-ash" use:reveal={100}>
+		ForgeFit clients have lost 14 kg, gained 6 kg of lean muscle and done their first pull-ups — 500+ clients
+		trained, 100% satisfaction, rated 4.9 out of 5 from 200+ reviews.
+	</p>
 
 	<div class="mt-10 grid gap-4 sm:grid-cols-3" use:reveal>
 		<div class="rounded-lg bg-flame p-6 text-center">

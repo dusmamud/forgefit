@@ -3,9 +3,23 @@
 	import favicon from '#lib/assets/favicon.svg';
 	import Header from '#lib/components/Header.svelte';
 	import Footer from '#lib/components/Footer.svelte';
+	import { page } from '$app/state';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
+
+	// Per-section OG card, chosen from the current route.
+	const ogMap: [RegExp, string][] = [
+		[/^\/programs/, 'og-programs.png'],
+		[/^\/pricing/, 'og-pricing.png'],
+		[/^\/about/, 'og-about.png'],
+		[/^\/results/, 'og-results.png'],
+		[/^\/blog/, 'og-blog.png'],
+		[/^\/tools/, 'og-tools.png']
+	];
+	const ogFile = $derived(ogMap.find(([re]) => re.test(page.url.pathname))?.[1] ?? 'og-default.png');
+	const ogUrl = $derived(`https://forgefits.pages.dev/images/og/${ogFile}`);
+	const canonical = $derived(`https://forgefits.pages.dev${page.url.pathname}`);
 </script>
 
 <svelte:head>
@@ -21,7 +35,31 @@
 		content="Certified personal training in Mumbai. Book a free session — no sales pitch, just an honest plan."
 	/>
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="ForgeFit" />
+	<meta property="og:url" content={canonical} />
+	<meta property="og:image" content={ogUrl} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="ForgeFit — Forge Your Best Self" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="ForgeFit — Forge Your Best Self" />
+	<meta
+		name="twitter:description"
+		content="Certified personal training in Mumbai. Book a free session — no sales pitch, just an honest plan."
+	/>
+	<meta name="twitter:image" content={ogUrl} />
+	<link rel="canonical" href={canonical} />
 	<meta name="theme-color" content="#0a0a0b" />
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": "ForgeFit",
+			"url": "https://forgefits.pages.dev/",
+			"inLanguage": "en",
+			"description": "Certified personal training in Mumbai — 1-on-1 coaching, online programs, nutrition planning and small-group training."
+		}
+	</script>
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",

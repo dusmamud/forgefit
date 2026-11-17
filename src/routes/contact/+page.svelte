@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { site } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
 
 	let name = $state('');
 	let sent = $state(false);
@@ -12,6 +13,7 @@
 		name="description"
 		content="Contact ForgeFit: {site.phone}, {site.email}. Andheri West, Mumbai. {site.hours}."
 	/>
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -21,9 +23,9 @@
 			<h1 class="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-white uppercase sm:text-6xl">
 				Talk to a<br />real coach
 			</h1>
-			<p class="mt-5 max-w-md leading-relaxed text-ash">
+			<p class="speakable mt-5 max-w-md leading-relaxed text-ash">
 				Questions about training, injuries, food, or which programme fits? Message us — a coach replies, not a
-				bot.
+				bot. Call +91 98765 43210 or email train@forgefit.in.
 			</p>
 			<div class="mt-8 space-y-4">
 				<div class="rounded-lg border border-line bg-coal p-5">

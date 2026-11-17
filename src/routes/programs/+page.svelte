@@ -1,6 +1,19 @@
 <script lang="ts">
 	import { programs } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
+
+	const itemListJsonLd = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'ItemList',
+		name: 'ForgeFit Programs',
+		itemListElement: programs.map((p, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: p.title,
+			url: `https://forgefits.pages.dev/programs/${p.slug}`
+		}))
+	});
 </script>
 
 <svelte:head>
@@ -9,6 +22,8 @@
 		name="description"
 		content="One-on-one coaching, online programs, nutrition planning and small-group training. Every ForgeFit program is built around your goals."
 	/>
+	{@html `<script type="application/ld+json">${itemListJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -16,7 +31,7 @@
 	<h1 class="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-white uppercase sm:text-7xl" use:reveal>
 		Programs<br />built to win
 	</h1>
-	<p class="mt-5 max-w-2xl leading-relaxed text-ash" use:reveal={100}>
+	<p class="speakable mt-5 max-w-2xl leading-relaxed text-ash" use:reveal={100}>
 		Four ways to train with ForgeFit. Every program starts with an assessment and a plan built for your body, your
 		schedule and your goals — no templates, no fluff.
 	</p>

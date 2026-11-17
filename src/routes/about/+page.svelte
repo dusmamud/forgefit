@@ -1,6 +1,19 @@
 <script lang="ts">
 	import { site } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
+
+	const personJsonLd = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: site.coach,
+		jobTitle: site.coachRole,
+		description:
+			'ACE Certified personal trainer in Mumbai with 10+ years of experience and 500+ clients trained. Specialities: strength training, fat loss, muscle gain, nutrition planning and online coaching.',
+		worksFor: { '@type': 'ProfessionalService', name: 'ForgeFit', url: 'https://forgefits.pages.dev/' },
+		knowsAbout: ['Strength training', 'Fat loss', 'Muscle gain', 'Nutrition planning', 'Online coaching'],
+		address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' }
+	});
 </script>
 
 <svelte:head>
@@ -9,6 +22,8 @@
 		name="description"
 		content="Meet {site.coach}, {site.coachRole} at ForgeFit Mumbai. {site.coachCreds}."
 	/>
+	{@html `<script type="application/ld+json">${personJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -33,7 +48,7 @@
 				{site.coach}
 			</h1>
 			<p class="mt-3 text-sm font-semibold tracking-widest text-flame uppercase">{site.coachCreds}</p>
-			<p class="mt-5 leading-relaxed text-ash">
+			<p class="speakable mt-5 leading-relaxed text-ash">
 				I spent a decade watching people quit gyms — not from laziness, but from bad plans. So I built ForgeFit
 				around one idea: training that fits your life, not the other way round. Every client gets an assessment, a
 				plan built for their body, and a coach who actually checks in.

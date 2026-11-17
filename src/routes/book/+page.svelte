@@ -2,6 +2,32 @@
 	import { page } from '$app/state';
 	import { programs } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
+
+	const howToJsonLd = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'HowTo',
+		name: 'How to book a free personal training session at ForgeFit',
+		description:
+			'Book a free 30-minute personal training session in Mumbai in three steps — no payment needed.',
+		step: [
+			{
+				'@type': 'HowToStep',
+				name: 'Choose a programme',
+				text: 'Pick 1-on-1 coaching, online programs, nutrition planning or group training.'
+			},
+			{
+				'@type': 'HowToStep',
+				name: 'Pick a day and time',
+				text: 'Choose one of the next 6 days and a time slot between 6:00 AM and 8:30 PM.'
+			},
+			{
+				'@type': 'HowToStep',
+				name: 'Leave your name and phone',
+				text: 'Enter your name and phone number. The coach calls you to confirm — no payment is taken.'
+			}
+		]
+	});
 
 	// Days always roll forward: the next 6 days from today, so the picker
 	// never goes stale (the old list was hardcoded to 17–22 Nov 2026).
@@ -54,6 +80,8 @@
 		name="description"
 		content="Book your free 30-minute ForgeFit session: pick a programme, a day and a time slot. No payment needed."
 	/>
+	{@html `<script type="application/ld+json">${howToJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -63,7 +91,7 @@
 			<h1 class="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-white uppercase sm:text-6xl">
 				Book your<br />free session
 			</h1>
-			<p class="mt-5 leading-relaxed text-ash">
+			<p class="speakable mt-5 leading-relaxed text-ash">
 				A relaxed chat — not a sales pitch. We assess your movement, talk goals, and hand you an honest plan.
 				If it is not for you, walk away with the plan anyway.
 			</p>

@@ -1,6 +1,29 @@
 <script lang="ts">
 	import { pricing, faqs } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
+
+	const planPrices: Record<string, number> = { Starter: 4999, 'Signature 1-on-1': 24999, Group: 7999 };
+	const itemListJsonLd = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'ItemList',
+		name: 'ForgeFit Pricing Plans',
+		itemListElement: pricing.map((plan, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			item: {
+				'@type': 'Product',
+				name: `ForgeFit ${plan.name}`,
+				description: plan.blurb,
+				offers: {
+					'@type': 'Offer',
+					price: planPrices[plan.name],
+					priceCurrency: 'INR',
+					url: 'https://forgefits.pages.dev/pricing'
+				}
+			}
+		}))
+	});
 </script>
 
 <svelte:head>
@@ -9,13 +32,15 @@
 		name="description"
 		content="ForgeFit pricing: Starter online ₹4,999/month, Signature 1-on-1 ₹24,999/month, Group ₹7,999/month. No hidden charges, no joining fee."
 	/>
+	{@html `<script type="application/ld+json">${itemListJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 	<div class="text-center" use:reveal>
 		<p class="eyebrow justify-center">Transparent pricing</p>
 		<h1 class="mt-4 font-display text-5xl tracking-wide text-white uppercase sm:text-7xl">Pick your plan</h1>
-		<p class="mx-auto mt-4 max-w-lg text-ash">
+		<p class="speakable mx-auto mt-4 max-w-lg text-ash">
 			No hidden charges, no joining fee, pause anytime. Your first session is free on every plan.
 		</p>
 	</div>

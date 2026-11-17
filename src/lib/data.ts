@@ -104,8 +104,10 @@ export type Post = {
 	excerpt: string;
 	image: string;
 	date: string;
+	dateISO: string;
 	read: string;
 	body: string[];
+	sources: { label: string; url: string }[];
 };
 
 export const posts: Post[] = [
@@ -117,6 +119,7 @@ export const posts: Post[] = [
 			'Breaking into fitness is hard. These five fundamentals will set you up for long-term success from day one.',
 		image: '/images/blog-training.jpg',
 		date: 'Apr 8, 2026',
+		dateISO: '2026-04-08',
 		read: '6 min read',
 		body: [
 			'Most beginners quit in the first six weeks — not because training is hard, but because they start wrong. Too much weight, too many exercises, no plan, no recovery. These five principles fix all of that.',
@@ -126,6 +129,13 @@ export const posts: Post[] = [
 			'4. Eat enough protein. Around 1.6 g per kg of bodyweight is a good starting target. Indian diets make this harder than it sounds, so plan it deliberately.',
 			'5. Sleep 7–8 hours. Muscle is built between sessions, not during them. Short sleep kills recovery, hunger control, and motivation in one shot.',
 			'Start simple, stay consistent, and add complexity only when the basics are automatic. That is the whole secret.'
+		],
+		sources: [
+			{ label: 'ACE Fitness — American Council on Exercise', url: 'https://www.acefitness.org/' },
+			{
+				label: 'WHO — Physical activity fact sheet',
+				url: 'https://www.who.int/news-room/fact-sheets/detail/physical-activity'
+			}
 		]
 	},
 	{
@@ -136,6 +146,7 @@ export const posts: Post[] = [
 			'Nutrition timing is everything. Learn exactly what to eat and when to maximise your training output.',
 		image: '/images/blog-nutrition.jpg',
 		date: 'Mar 25, 2026',
+		dateISO: '2026-03-25',
 		read: '5 min read',
 		body: [
 			'You can train perfectly and still stall if your food is wrong. Timing matters less than totals — but around training, a little planning goes a long way.',
@@ -143,6 +154,10 @@ export const posts: Post[] = [
 			'After training (within 2 hours): protein plus carbs. Eggs and toast, chicken and rice, paneer and roti, or a whey shake with a banana. Aim for 25–40 g of protein in this meal.',
 			'Hydration counts too. Two litres is a floor, not a target — in Indian summers, most lifters need three or more, plus salt with meals.',
 			'The boring truth: hit your daily protein and calories first. Timing is the final 10%, not the first 90%.'
+		],
+		sources: [
+			{ label: 'Academy of Nutrition and Dietetics — EatRight.org Fitness', url: 'https://www.eatright.org/fitness' },
+			{ label: 'NHS — Eat well', url: 'https://www.nhs.uk/live-well/eat-well/' }
 		]
 	},
 	{
@@ -153,6 +168,7 @@ export const posts: Post[] = [
 			'Motivation fades. Discipline wins. Here is how to build the mental systems that keep you showing up every day.',
 		image: '/images/blog-mindset.jpg',
 		date: 'Mar 10, 2026',
+		dateISO: '2026-03-10',
 		read: '4 min read',
 		body: [
 			'Motivation is a terrible plan. It shows up on day one and disappears by week three. The people who transform are not more motivated — they have better systems.',
@@ -160,6 +176,13 @@ export const posts: Post[] = [
 			'Second, fix the time. Same days, same hour, every week. Willpower is a poor alarm clock; a calendar slot is not.',
 			'Third, track the streak, not the result. The scale moves slowly. Sessions completed moves every week — and it is fully in your control.',
 			'Finally, train with someone. A coach, a batch, a friend. Accountability is the cheapest performance enhancer there is.'
+		],
+		sources: [
+			{
+				label: 'WHO — Physical activity fact sheet',
+				url: 'https://www.who.int/news-room/fact-sheets/detail/physical-activity'
+			},
+			{ label: 'ACE Fitness — American Council on Exercise', url: 'https://www.acefitness.org/' }
 		]
 	}
 ];

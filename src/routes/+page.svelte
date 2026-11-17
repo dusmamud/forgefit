@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { programs, posts, testimonials, pricing, faqs, site } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
 
 	let openFaq = $state<number | null>(0);
 </script>
+
+<svelte:head>
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
+</svelte:head>
 
 <!-- ============ HERO ============ -->
 <section class="relative overflow-hidden bg-[radial-gradient(90%_90%_at_70%_10%,#7a1d05_0%,#3d0f02_38%,#0a0a0b_78%)]">
@@ -23,7 +28,7 @@
 			>
 				Forge your<br />best self
 			</h1>
-			<p class="mt-5 max-w-md text-base leading-relaxed text-bone/75 sm:text-lg" use:reveal={100}>
+			<p class="speakable mt-5 max-w-md text-base leading-relaxed text-bone/75 sm:text-lg" use:reveal={100}>
 				Personal training designed around you — your goals, your pace, your results.
 			</p>
 			<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4" use:reveal={200}>

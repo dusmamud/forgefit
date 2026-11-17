@@ -1,0 +1,31 @@
+# ForgeFit
+
+> ForgeFit is a certified personal training service in Mumbai, India, run by coach Arjun Mehta (ACE Certified, 10+ years, 500+ clients trained). Programmes: 1-on-1 coaching, online programmes, nutrition planning, group training. First session free (30 minutes). Prices from ₹999 per session / ₹4,999 per month.
+
+## Pages
+
+- [Home](https://forgefits.pages.dev/): Forge Your Best Self — certified personal trainer in Mumbai. Free 30-min session.
+- [Programs](https://forgefits.pages.dev/programs): 1-on-1 Coaching (₹2,499/session), Online Programs (₹4,999/mo), Nutrition Planning (₹3,499/mo), Group Training (₹999/session).
+- [Results](https://forgefits.pages.dev/results): Client transformations and testimonials. 100% client satisfaction, 4.9/5 from 200+ reviews.
+- [Pricing](https://forgefits.pages.dev/pricing): Starter ₹4,999/mo, Signature 1-on-1 ₹24,999/mo, Group ₹7,999/mo. Pause up to 2 weeks/quarter; cancel with 7 days notice.
+- [Blog](https://forgefits.pages.dev/blog): Training, nutrition and mindset articles.
+- [About](https://forgefits.pages.dev/about): Coach Arjun Mehta — ACE Certified, 10+ years, 500+ clients.
+- [Book a free session](https://forgefits.pages.dev/book): Pick a programme, day and time slot. Demo booking — no data leaves the browser yet.
+- [FAQ](https://forgefits.pages.dev/faq): Beginners, gym membership, what to bring, pausing/cancelling, vegetarian diet plans, injuries.
+- [Fitness tools](https://forgefits.pages.dev/tools): Free BMI calculator and daily calorie (TDEE) calculator.
+- [Contact](https://forgefits.pages.dev/contact): +91 98765 43210, train@forgefit.in, Andheri West, Mumbai. Mon–Sat, 6 AM – 9 PM.
+- [Refund Policy](https://forgefits.pages.dev/refund-policy)
+- [Disclaimer](https://forgefits.pages.dev/disclaimer)
+- [Privacy Policy](https://forgefits.pages.dev/privacy)
+- [Terms](https://forgefits.pages.dev/terms)
+
+## Contact
+
+- Phone: +91 98765 43210
+- Email: train@forgefit.in
+- Studio: Andheri West, Mumbai, India
+- Hours: Mon–Sat, 6 AM – 9 PM
+
+## Note
+
+Coach details, prices, testimonials and policies on this site are mock values shown for demonstration. Verify before citing as fact.

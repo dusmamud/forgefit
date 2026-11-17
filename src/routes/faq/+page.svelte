@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { faqs } from '#lib/data';
+	import { speakableJsonLd } from '#lib/seo';
 
 	let openFaq = $state<number | null>(0);
 
@@ -21,6 +22,7 @@
 		content="ForgeFit frequently asked questions: beginners, gym membership, what to bring, pausing and cancelling, vegetarian diet plans, injuries and more."
 	/>
 	{@html `<script type="application/ld+json">${faqJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:py-24">
@@ -28,7 +30,7 @@
 	<h1 class="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-white uppercase sm:text-6xl">
 		Questions,<br />answered
 	</h1>
-	<p class="mt-5 leading-relaxed text-ash">
+	<p class="speakable mt-5 leading-relaxed text-ash">
 		Everything people usually ask before their first free session. Anything else — call us on
 		<a class="font-semibold text-white" href="tel:+919876543210">+91 98765 43210</a> or ask on the
 		<a class="font-semibold text-white" href="/contact">contact page</a>.

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { speakableJsonLd } from '#lib/seo';
+
 	// BMI + daily calorie (TDEE) calculators. Fully client-side — nothing leaves the browser.
 
 	// --- BMI ---
@@ -46,6 +48,7 @@
 		name="description"
 		content="Free ForgeFit tools: check your BMI and estimate daily calories and protein for your goal. Instant, private — nothing leaves your browser."
 	/>
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -53,7 +56,7 @@
 	<h1 class="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-white uppercase sm:text-7xl">
 		Know your<br />numbers
 	</h1>
-	<p class="mt-5 max-w-2xl leading-relaxed text-ash">
+	<p class="speakable mt-5 max-w-2xl leading-relaxed text-ash">
 		Two quick checks before you start training — your BMI and your daily calorie + protein targets. Estimates
 		only, not medical advice; your coach fine-tunes them in your first session.
 	</p>

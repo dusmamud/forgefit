@@ -5,11 +5,49 @@
 	let { data }: PageProps = $props();
 	const post = $derived(data.post);
 	const others = $derived(data.others);
+
+	const blogJsonLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BlogPosting',
+			headline: post.title,
+			description: post.excerpt,
+			image: `https://forgefits.pages.dev${post.image}`,
+			datePublished: post.dateISO,
+			author: { '@type': 'Person', name: 'Arjun Mehta', jobTitle: 'Certified Personal Trainer' },
+			publisher: {
+				'@type': 'Organization',
+				name: 'ForgeFit',
+				url: 'https://forgefits.pages.dev/'
+			},
+			mainEntityOfPage: `https://forgefits.pages.dev/blog/${post.slug}`,
+			articleSection: post.category,
+			inLanguage: 'en'
+		})
+	);
+	const breadcrumbJsonLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://forgefits.pages.dev/' },
+				{ '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://forgefits.pages.dev/blog' },
+				{
+					'@type': 'ListItem',
+					position: 3,
+					name: post.title,
+					item: `https://forgefits.pages.dev/blog/${post.slug}`
+				}
+			]
+		})
+	);
 </script>
 
 <svelte:head>
 	<title>{post.title} — ForgeFit</title>
 	<meta name="description" content={post.excerpt} />
+	{@html `<script type="application/ld+json">${blogJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${breadcrumbJsonLd}</script>`}
 </svelte:head>
 
 <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:py-20">
@@ -30,6 +68,17 @@
 		{#each post.body as para}
 			<p>{para}</p>
 		{/each}
+	</div>
+
+	<div class="mt-10 border-t border-line pt-6" use:reveal>
+		<h2 class="text-xs font-bold tracking-widest text-white uppercase">Sources</h2>
+		<ul class="mt-3 space-y-2 text-sm">
+			{#each post.sources as s}
+				<li>
+					<a class="text-flame hover:text-ember" href={s.url} target="_blank" rel="noopener">{s.label} ↗</a>
+				</li>
+			{/each}
+		</ul>
 	</div>
 
 	<div class="mt-12 rounded-lg bg-flame p-7 text-center" use:reveal>

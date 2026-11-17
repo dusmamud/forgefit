@@ -6,11 +6,45 @@
 	let { data }: PageProps = $props();
 	const program = $derived(data.program);
 	const others = $derived(data.others);
+
+	const serviceJsonLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Service',
+			name: program.title,
+			description: program.desc,
+			provider: {
+				'@type': 'ProfessionalService',
+				name: 'ForgeFit',
+				url: 'https://forgefits.pages.dev/'
+			},
+			areaServed: 'Mumbai, India',
+			url: `https://forgefits.pages.dev/programs/${program.slug}`
+		})
+	);
+	const breadcrumbJsonLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://forgefits.pages.dev/' },
+				{ '@type': 'ListItem', position: 2, name: 'Programs', item: 'https://forgefits.pages.dev/programs' },
+				{
+					'@type': 'ListItem',
+					position: 3,
+					name: program.title,
+					item: `https://forgefits.pages.dev/programs/${program.slug}`
+				}
+			]
+		})
+	);
 </script>
 
 <svelte:head>
 	<title>{program.title} — ForgeFit</title>
 	<meta name="description" content="{program.tagline}. {program.desc}" />
+	{@html `<script type="application/ld+json">${serviceJsonLd}</script>`}
+	{@html `<script type="application/ld+json">${breadcrumbJsonLd}</script>`}
 </svelte:head>
 
 <section class="relative overflow-hidden">

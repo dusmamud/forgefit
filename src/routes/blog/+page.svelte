@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { posts } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import { speakableJsonLd } from '#lib/seo';
 </script>
 
 <svelte:head>
@@ -9,6 +10,7 @@
 		name="description"
 		content="ForgeFit articles on training, nutrition and mindset — practical advice from a certified personal trainer, no fluff."
 	/>
+	{@html `<script type="application/ld+json">${speakableJsonLd()}</script>`}
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -16,7 +18,7 @@
 	<h1 class="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-white uppercase sm:text-7xl" use:reveal>
 		Forge your<br />mindset
 	</h1>
-	<p class="mt-5 max-w-2xl leading-relaxed text-ash" use:reveal={100}>
+	<p class="speakable mt-5 max-w-2xl leading-relaxed text-ash" use:reveal={100}>
 		Short, practical articles on training, nutrition and mindset. Everything here is what I actually tell my
 		clients — no filler, no fads.
 	</p>

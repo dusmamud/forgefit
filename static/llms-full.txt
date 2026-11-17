@@ -1,0 +1,73 @@
+# ForgeFit — Full Reference
+
+> ForgeFit is a certified personal training service in Mumbai, India, run by coach Arjun Mehta (ACE Certified, 10+ years, 500+ clients trained). First session free (30 minutes). Prices from ₹999 per session / ₹4,999 per month. Contact: +91 98765 43210, train@forgefit.in, Andheri West, Mumbai. Hours: Mon–Sat, 6 AM – 9 PM.
+
+## Coach
+
+Arjun Mehta — Certified Personal Trainer, ACE Certified, 10+ years experience, 500+ clients trained. Specialities: strength training, fat loss, muscle gain, nutrition planning, online coaching.
+
+## Programs
+
+### 1. One-on-One Coaching — ₹2,499 / session (60 min, 3× per week recommended)
+Fully personalised training sessions built around your schedule, body, and goals. No templates — just results.
+Includes: full movement + fitness assessment; custom programme, rebuilt every 4 weeks; form correction on every single rep; WhatsApp check-ins between sessions.
+Best for: beginners, busy professionals, anyone who wants a coach watching every rep.
+
+### 2. Online Programs — ₹4,999 / month (4-week blocks)
+Train anywhere, anytime. Custom workout plans and video guidance delivered directly to your device.
+Includes: personalised plan for home or gym; video demo for every exercise; weekly video review of your lifts; nutrition targets included.
+Best for: self-starters, travellers, anyone outside Mumbai who still wants a real coach.
+
+### 3. Nutrition Planning — ₹3,499 / month (reviewed every 2 weeks)
+Fuel your transformation with a personalised nutrition strategy tailored to your goals and lifestyle.
+Includes: Indian-food-first meal plans (veg + non-veg); calories + protein targets that fit your life; restaurant and travel eating guides; monthly body-composition review.
+Best for: fat loss, muscle gain, or anyone tired of guessing what to eat.
+
+### 4. Group Training — ₹999 / session (45 min, max 8 people per batch)
+High-energy small group sessions combining community motivation with expert coaching for maximum output.
+Includes: small batches — never more than 8; strength + conditioning in every session; morning and evening batches; train with friends, stay accountable.
+Weekly schedule: Mon–Fri 6:30 AM Strength, 8:00 AM Conditioning, 5:30 PM Strength, 7:00 PM Conditioning; Saturday 8:00 AM Strength, 9:30 AM Conditioning, 5:30 PM Open gym + coach; Sunday rest day (online check-ins only).
+Best for: anyone who trains harder with people around them — and likes paying less for it.
+
+## Pricing plans
+
+- Starter — ₹4,999 / month: online programme rebuilt monthly, video demo for every exercise, nutrition targets included, monthly progress review.
+- Signature 1-on-1 — ₹24,999 / month: 12 one-on-one sessions / month, custom nutrition plan + reviews, WhatsApp access between sessions, body-composition tracking.
+- Group — ₹7,999 / month: unlimited group batches, max 8 people per batch, morning + evening slots, monthly fitness testing.
+Policies: monthly plans can be paused up to 2 weeks per quarter and cancelled with 7 days notice. Unused 1-on-1 sessions refundable within 30 days. Single sessions refundable in full if cancelled 12+ hours before. Prices include GST. Gym membership included for in-person plans.
+
+## Results (mock)
+
+- 100% client satisfaction, 500+ clients trained, 4.9/5 from 200+ reviews.
+- Transformations: Rohan Sharma, 92 kg → 78 kg in 20 weeks (1-on-1 + Nutrition); Priya Nair, 0 → 1 pull-up in 12 weeks (Online Programme); Kabir Malhotra, bench press 60 kg → 100 kg in 24 weeks (1-on-1 + Nutrition).
+- Testimonials: Rohan Sharma (lost 14 kg in 5 months), Priya Nair (first pull-up at 34), Kabir Malhotra (gained 6 kg lean muscle).
+
+## Blog articles
+
+1. "5 Principles Every Beginner Must Know Before Starting" (Training, 8 Apr 2026, 6 min) — master the movement first, train 3× a week, track something, eat enough protein (~1.6 g/kg), sleep 7–8 hours.
+2. "What to Eat Before and After Training for Maximum Gains" (Nutrition, 25 Mar 2026, 5 min) — light carbs + protein 60–90 min before; 25–40 g protein + carbs within 2 hours after; hydration 3+ litres in Indian summers.
+3. "How to Stay Consistent When Motivation Runs Out" (Mindset, 10 Mar 2026, 4 min) — shrink the commitment, fix the time, track the streak, train with someone.
+
+## FAQ (summary)
+
+- Never trained before? Yes — most clients are complete beginners; first session is an assessment.
+- Gym membership? Included for 1-on-1 and group training at the partner gym in Andheri West; online programmes work at home or any gym.
+- What to bring to the free session? Workout clothes, shoes, water bottle, any relevant medical history.
+- Pause or cancel? Yes — pause up to 2 weeks/quarter, cancel with 7 days notice, unused 1-on-1 sessions refundable within 30 days.
+- Vegetarian diet plans? Yes — Indian vegetarian food first (paneer, dal, curd, soya).
+- Old injury? Tell the coach in the first session; exercises are adjusted around it.
+- Train with a friend or partner? Yes — two people can share a 1-on-1 slot at a small extra charge.
+- Minimum commitment? No lock-in on monthly plans; single sessions one at a time.
+
+## Free tools
+
+- BMI calculator: weight relative to height, with category (underweight / healthy / overweight / obese).
+- Calorie calculator: daily maintenance calories (TDEE) via Mifflin-St Jeor, plus protein target 1.4–2 g/kg. Fat-loss and muscle-gain estimates included.
+
+## Booking
+
+Book a free 30-minute session at https://forgefits.pages.dev/book — choose a programme, pick one of the next 6 days, pick a time slot (6:00 AM – 8:30 PM), leave your name and phone. Demo booking — no data leaves the browser yet.
+
+## Note
+
+Coach details, prices, testimonials, transformation numbers and policies on this site are mock values shown for demonstration. Verify before citing as fact.
