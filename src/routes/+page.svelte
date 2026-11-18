@@ -4,6 +4,7 @@
 	import { speakableJsonLd } from '#lib/seo';
 	import Counter from '#lib/components/Counter.svelte';
 	import TestimonialSlider from '#lib/components/TestimonialSlider.svelte';
+	import Picture from '#lib/components/Picture.svelte';
 
 	let openFaq = $state<number | null>(0);
 
@@ -52,7 +53,7 @@
 				class="mt-5 font-display text-[clamp(3rem,11vw,6.5rem)] leading-[0.9] tracking-wide text-white uppercase"
 				use:reveal
 			>
-				Forge your<br />best self
+				<span class="whitespace-nowrap">Forge your</span><br /><span class="whitespace-nowrap">best self</span>
 			</h1>
 			<p class="speakable mt-5 max-w-md text-base leading-relaxed text-bone/75 sm:text-lg" use:reveal={100}>
 				Personal training designed around you — your goals, your pace, your results.
@@ -60,7 +61,7 @@
 			<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4" use:reveal={200}>
 				<a
 					href="/book"
-					class="rounded-sm bg-flame px-6 py-3.5 text-center text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+					class="rounded-sm bg-flame-dark px-6 py-3.5 text-center text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 				>
 					Book a free session →
 				</a>
@@ -77,14 +78,16 @@
 		</div>
 
 		<div class="relative lg:col-span-5" use:reveal={150}>
-			<img
-				src="/images/hero-trainer.png"
+			<Picture
+				base="/images/hero-trainer"
 				alt="ForgeFit head coach {site.coach} — certified personal trainer, arms crossed in a red tank top"
-				class="mx-auto w-full max-w-[420px] lg:absolute lg:right-0 lg:bottom-0 lg:h-[700px] lg:w-auto lg:max-w-none xl:h-[740px]"
-				width="1600"
-				height="1600"
+				cls="mx-auto w-full max-w-[420px] lg:absolute lg:right-0 lg:bottom-0 lg:h-[700px] lg:w-auto lg:max-w-none xl:h-[740px]"
+				width={1600}
+				height={1600}
+				sizes="(min-width: 1024px) 740px, 420px"
 				fetchpriority="high"
-				style:transform="translateY({reducedMotion ? 0 : scrollY * -0.05}px)"
+				fallback="/images/hero-trainer.png"
+				style="transform: translateY({reducedMotion ? 0 : scrollY * -0.05}px)"
 			/>
 		</div>
 	</div>
@@ -92,7 +95,7 @@
 	<!-- Stat cards overlapping the hero bottom -->
 	<div class="relative z-10 mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:-mt-8 lg:px-8 lg:pb-14">
 		<div class="grid gap-4 sm:grid-cols-2 lg:ml-auto lg:max-w-xl">
-			<div class="rounded-lg bg-flame/90 p-5 shadow-2xl backdrop-blur" use:reveal>
+			<div class="rounded-lg bg-flame-dark/90 p-5 shadow-2xl backdrop-blur" use:reveal>
 				<p class="font-display text-5xl text-white"><Counter value={100} suffix="%" /></p>
 				<p class="mt-2 text-sm leading-snug text-white/85">
 					Client Satisfaction Guaranteed — every program is built around your goals.
@@ -109,7 +112,7 @@
 </section>
 
 <!-- ============ MARQUEE ============ -->
-<div class="marquee overflow-hidden border-y border-line bg-flame py-3" aria-hidden="true">
+<div class="marquee overflow-hidden border-y border-line bg-flame-dark py-3" aria-hidden="true">
 	<div class="marquee-track items-center gap-8">
 		{#each [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems] as item}
 			<span class="flex items-center gap-8 font-display text-xl tracking-widest whitespace-nowrap text-white uppercase">
@@ -135,7 +138,7 @@
 			</p>
 			<a
 				href="/programs"
-				class="mt-4 inline-block rounded-sm bg-flame px-5 py-2.5 text-xs font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+				class="mt-4 inline-block rounded-sm bg-flame-dark px-5 py-2.5 text-xs font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 			>
 				View all programs →
 			</a>
@@ -147,27 +150,28 @@
 			<a
 				href="/programs/{program.slug}"
 				class="card-zoom group relative flex flex-col overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
-				class:bg-flame={i === 2}
+				class:bg-flame-dark={i === 2}
 				class:border-flame={i === 2}
 				use:reveal={i * 100}
 			>
-				<img
-					src={program.image}
+				<Picture
+					base={program.image}
 					alt={program.title}
-					class="aspect-[16/10] w-full object-cover opacity-90"
+					cls="aspect-[16/10] w-full object-cover opacity-90"
 					loading="lazy"
-					width="800"
-					height="500"
+					width={800}
+					height={500}
+					sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"
 				/>
 				<div class="flex grow flex-col p-5">
-					<p class="text-xs font-bold tracking-widest {i === 2 ? 'text-white/70' : 'text-flame'}">{program.num}</p>
+					<p class="text-xs font-bold tracking-widest {i === 2 ? 'text-white/70' : 'text-ember'}">{program.num}</p>
 					<h3 class="mt-2 font-display text-2xl tracking-wide text-white uppercase">{program.title}</h3>
 					<p class="mt-2 grow text-sm leading-relaxed {i === 2 ? 'text-white/85' : 'text-ash'}">{program.desc}</p>
 					<p class="mt-3 text-xs font-semibold text-ash">{program.price}</p>
 					<span
 						class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase {i === 2
 							? 'text-white'
-							: 'text-flame'}"
+							: 'text-ember'}"
 					>
 						Learn more <span class="card-arrow" aria-hidden="true">→</span>
 					</span>
@@ -199,15 +203,16 @@
 <section class="border-y border-line bg-coal">
 	<div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-24">
 		<div class="relative" use:reveal>
-			<img
-				src="/images/coach.jpg"
+			<Picture
+				base="/images/coach"
 				alt="{site.coach} coaching a client in the gym"
-				class="aspect-[4/3] w-full rounded-lg object-cover"
+				cls="aspect-[4/3] w-full rounded-lg object-cover"
 				loading="lazy"
-				width="800"
-				height="600"
+				width={800}
+				height={600}
+				sizes="(min-width: 1024px) 600px, 100vw"
 			/>
-			<div class="absolute -bottom-5 left-5 rounded-md bg-flame px-5 py-4 shadow-xl">
+			<div class="absolute -bottom-5 left-5 rounded-md bg-flame-dark px-5 py-4 shadow-xl">
 				<p class="font-display text-3xl text-white">10+ yrs</p>
 				<p class="text-xs font-semibold tracking-widest text-white/85 uppercase">Coaching experience</p>
 			</div>
@@ -217,16 +222,16 @@
 			<h2 class="mt-4 font-display text-4xl leading-[0.95] tracking-wide text-white uppercase sm:text-5xl">
 				{site.coach}
 			</h2>
-			<p class="mt-3 text-sm font-semibold tracking-widest text-flame uppercase">{site.coachCreds}</p>
+			<p class="mt-3 text-sm font-semibold tracking-widest text-ember uppercase">{site.coachCreds}</p>
 			<p class="mt-5 leading-relaxed text-ash">
 				I spent a decade watching people quit gyms — not from laziness, but from bad plans. So I built ForgeFit
 				around one idea: training that fits your life, not the other way round. Every client gets an assessment, a
 				plan built for their body, and a coach who actually checks in.
 			</p>
 			<ul class="mt-6 space-y-3 text-sm text-bone/85">
-				<li class="flex gap-3"><span class="text-flame">✓</span> Assessment-first — no random workouts, ever</li>
-				<li class="flex gap-3"><span class="text-flame">✓</span> Indian-food-first nutrition that you can sustain</li>
-				<li class="flex gap-3"><span class="text-flame">✓</span> Progress tracked every week, plan adjusted monthly</li>
+				<li class="flex gap-3"><span class="text-ember">✓</span> Assessment-first — no random workouts, ever</li>
+				<li class="flex gap-3"><span class="text-ember">✓</span> Indian-food-first nutrition that you can sustain</li>
+				<li class="flex gap-3"><span class="text-ember">✓</span> Progress tracked every week, plan adjusted monthly</li>
 			</ul>
 			<a
 				href="/about"
@@ -249,7 +254,7 @@
 		</div>
 		<a
 			href="/results"
-			class="rounded-sm bg-flame px-5 py-2.5 text-xs font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+			class="rounded-sm bg-flame-dark px-5 py-2.5 text-xs font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 		>
 			All results →
 		</a>
@@ -259,7 +264,7 @@
 		<TestimonialSlider />
 	</div>
 	<p class="mt-6 text-center text-sm text-ash">
-		<a href="/results" class="font-semibold text-flame hover:text-ember">See all transformations →</a>
+		<a href="/results" class="font-semibold text-ember hover:text-ember-light">See all transformations →</a>
 	</p>
 </section>
 
@@ -277,12 +282,12 @@
 			{#each pricing as plan, i}
 				<div
 					class="rounded-lg border p-6 {plan.featured
-						? 'border-flame bg-flame/10 shadow-[0_0_50px_-12px_#e8380d]'
+						? 'border-flame bg-flame-dark/10 shadow-[0_0_50px_-12px_#e8380d]'
 						: 'border-line bg-ink'}"
 					use:reveal={i * 100}
 				>
 					{#if plan.featured}
-						<p class="inline-block rounded-sm bg-flame px-3 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
+						<p class="inline-block rounded-sm bg-flame-dark px-3 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
 							Most popular
 						</p>
 					{/if}
@@ -293,13 +298,13 @@
 					<p class="mt-2 text-sm text-ash">{plan.blurb}</p>
 					<ul class="mt-5 space-y-2.5 text-sm text-bone/85">
 						{#each plan.features as f}
-							<li class="flex gap-2.5"><span class="text-flame">✓</span> {f}</li>
+							<li class="flex gap-2.5"><span class="text-ember">✓</span> {f}</li>
 						{/each}
 					</ul>
 					<a
 						href="/book"
 						class="mt-6 block rounded-sm py-3 text-center text-sm font-bold tracking-widest uppercase transition {plan.featured
-							? 'bg-flame text-white hover:bg-flame-dark'
+							? 'bg-flame-dark text-white hover:bg-flame-deep'
 							: 'border border-white/25 text-white hover:border-white'}"
 					>
 						{plan.cta}
@@ -308,7 +313,7 @@
 			{/each}
 		</div>
 		<p class="mt-6 text-center text-sm">
-			<a href="/pricing" class="font-semibold text-flame hover:text-ember">See full pricing details →</a>
+			<a href="/pricing" class="font-semibold text-ember hover:text-ember-light">See full pricing details →</a>
 		</p>
 	</div>
 </section>
@@ -337,23 +342,24 @@
 				class="group overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
 				use:reveal={i * 100}
 			>
-				<img
-					src={post.image}
+				<Picture
+					base={post.image}
 					alt={post.title}
-					class="aspect-[16/10] w-full object-cover transition group-hover:scale-[1.03]"
+					cls="aspect-[16/10] w-full object-cover transition group-hover:scale-[1.03]"
 					loading="lazy"
-					width="800"
-					height="500"
+					width={800}
+					height={500}
+					sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
 				/>
 				<div class="p-5">
-					<p class="inline-block rounded-sm bg-flame px-2.5 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
+					<p class="inline-block rounded-sm bg-flame-dark px-2.5 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
 						{post.category}
 					</p>
 					<h3 class="mt-3 text-lg leading-snug font-bold text-white">{post.title}</h3>
 					<p class="mt-2 text-sm leading-relaxed text-ash">{post.excerpt}</p>
 					<p class="mt-4 flex items-center justify-between text-xs text-ash">
 						<span>{post.date} · {post.read}</span>
-						<span class="font-bold tracking-widest text-flame uppercase">Read more →</span>
+						<span class="font-bold tracking-widest text-ember uppercase">Read more →</span>
 					</p>
 				</div>
 			</a>
@@ -368,7 +374,7 @@
 			<p class="eyebrow justify-center">Before you ask</p>
 			<h2 class="mt-4 font-display text-4xl tracking-wide text-white uppercase sm:text-5xl">Questions, answered</h2>
 			<p class="mt-4 text-sm">
-				<a href="/faq" class="font-semibold text-flame hover:text-ember">View all FAQs →</a>
+				<a href="/faq" class="font-semibold text-ember hover:text-ember-light">View all FAQs →</a>
 			</p>
 		</div>
 		<div class="mt-10 space-y-3">
@@ -381,7 +387,7 @@
 						onclick={() => (openFaq = openFaq === i ? null : i)}
 					>
 						{faq.q}
-						<span class="shrink-0 text-xl text-flame" aria-hidden="true">{openFaq === i ? '−' : '+'}</span>
+						<span class="shrink-0 text-xl text-ember" aria-hidden="true">{openFaq === i ? '−' : '+'}</span>
 					</button>
 					{#if openFaq === i}
 						<p class="px-5 pb-5 text-sm leading-relaxed text-ash">{faq.a}</p>
@@ -404,15 +410,15 @@
 		</p>
 		<a
 			href="/book"
-			class="mt-8 inline-block rounded-sm bg-flame px-8 py-4 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+			class="mt-8 inline-block rounded-sm bg-flame-dark px-8 py-4 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 		>
 			Book a free session →
 		</a>
 		<p class="mt-5 text-sm text-ash">
 			Not ready to book? Start free instead —
-			<a href="/free-guide" class="font-semibold text-flame hover:text-ember">get the 7-day starter plan</a>
+			<a href="/free-guide" class="font-semibold text-ember hover:text-ember-light">get the 7-day starter plan</a>
 			or take the
-			<a href="/challenges" class="font-semibold text-flame hover:text-ember">30-day Forge Challenge</a>.
+			<a href="/challenges" class="font-semibold text-ember hover:text-ember-light">30-day Forge Challenge</a>.
 		</p>
 	</div>
 </section>

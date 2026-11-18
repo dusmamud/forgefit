@@ -10,14 +10,14 @@
 
 	// Per-section OG card, chosen from the current route.
 	const ogMap: [RegExp, string][] = [
-		[/^\/programs/, 'og-programs.png'],
-		[/^\/pricing/, 'og-pricing.png'],
-		[/^\/about/, 'og-about.png'],
-		[/^\/results/, 'og-results.png'],
-		[/^\/blog/, 'og-blog.png'],
-		[/^\/tools/, 'og-tools.png']
+		[/^\/programs/, 'og-programs.jpg'],
+		[/^\/pricing/, 'og-pricing.jpg'],
+		[/^\/about/, 'og-about.jpg'],
+		[/^\/results/, 'og-results.jpg'],
+		[/^\/blog/, 'og-blog.jpg'],
+		[/^\/tools/, 'og-tools.jpg']
 	];
-	const ogFile = $derived(ogMap.find(([re]) => re.test(page.url.pathname))?.[1] ?? 'og-default.png');
+	const ogFile = $derived(ogMap.find(([re]) => re.test(page.url.pathname))?.[1] ?? 'og-default.jpg');
 	const ogUrl = $derived(`https://forgefits.pages.dev/images/og/${ogFile}`);
 	const canonical = $derived(`https://forgefits.pages.dev${page.url.pathname}`);
 
@@ -35,6 +35,14 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<!-- Preload the display + body fonts (hashed names are content-stable: the
+	     font files never change, so the hash survives rebuilds). Without this,
+	     the @import chain in layout.css delays font discovery and the hero
+	     headline swaps fonts after first paint — the desktop CLS 0.14 culprit. -->
+	<link rel="preload" href="/_app/immutable/assets/anton-latin-400-normal.Byf51wtH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	<link rel="preload" href="/_app/immutable/assets/inter-latin-400-normal.C38fXH4l.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	<link rel="preload" href="/_app/immutable/assets/inter-latin-600-normal.LgqL8muc.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	<link rel="preload" href="/_app/immutable/assets/inter-latin-700-normal.Yt3aPRUw.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 	<title>ForgeFit — Personal Training in Mumbai | Forge Your Best Self</title>
 	<meta
 		name="description"
@@ -75,9 +83,11 @@
 		{
 			"@context": "https://schema.org",
 			"@type": "ProfessionalService",
+			"@id": "https://forgefits.pages.dev/#business",
 			"name": "ForgeFit",
 			"description": "Certified personal training in Mumbai. 1-on-1 coaching, online programs, nutrition planning and small-group training.",
 			"url": "https://forgefits.pages.dev/",
+			"image": "https://forgefits.pages.dev/images/og/og-default.jpg",
 			"telephone": "+91-98765-43210",
 			"email": "train@forgefit.in",
 			"priceRange": "₹999 - ₹24,999",
@@ -100,7 +110,7 @@
 
 <a
 	href="#main-content"
-	class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:rounded-sm focus:bg-flame focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white"
+	class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:rounded-sm focus:bg-flame-dark focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white"
 >
 	Skip to content
 </a>
@@ -140,7 +150,7 @@
 			</a>
 			<a
 				href="/book"
-				class="grow rounded-sm bg-flame py-3 text-center text-sm font-bold tracking-widest text-white uppercase transition active:bg-flame-dark"
+				class="grow rounded-sm bg-flame-dark py-3 text-center text-sm font-bold tracking-widest text-white uppercase transition active:bg-flame-deep"
 			>
 				Book a free session
 			</a>

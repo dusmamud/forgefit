@@ -33,7 +33,7 @@ export const programs: Program[] = [
 		title: 'One-on-One Coaching',
 		tagline: 'Fully personalised training built around you',
 		desc: 'Fully personalised training sessions built around your schedule, body, and goals. No templates — just results.',
-		image: '/images/program-1on1.jpg',
+		image: '/images/program-1on1',
 		price: '₹2,499 / session',
 		duration: '60 min · 3× per week recommended',
 		includes: [
@@ -50,7 +50,7 @@ export const programs: Program[] = [
 		title: 'Online Programs',
 		tagline: 'Train anywhere, anytime',
 		desc: 'Train anywhere, anytime. Custom workout plans and video guidance delivered directly to your device.',
-		image: '/images/program-online.jpg',
+		image: '/images/program-online',
 		price: '₹4,999 / month',
 		duration: '4-week blocks · train on your schedule',
 		includes: [
@@ -67,7 +67,7 @@ export const programs: Program[] = [
 		title: 'Nutrition Planning',
 		tagline: 'Fuel the transformation',
 		desc: 'Fuel your transformation with a personalised nutrition strategy tailored to your goals and lifestyle.',
-		image: '/images/program-nutrition.jpg',
+		image: '/images/program-nutrition',
 		price: '₹3,499 / month',
 		duration: 'Ongoing · reviewed every 2 weeks',
 		includes: [
@@ -84,7 +84,7 @@ export const programs: Program[] = [
 		title: 'Group Training',
 		tagline: 'High-energy small groups',
 		desc: 'High-energy small group sessions combining community motivation with expert coaching for maximum output.',
-		image: '/images/program-group.jpg',
+		image: '/images/program-group',
 		price: '₹999 / session',
 		duration: '45 min · max 8 people per batch',
 		includes: [
@@ -117,9 +117,9 @@ export const posts: Post[] = [
 		title: '5 Principles Every Beginner Must Know Before Starting',
 		excerpt:
 			'Breaking into fitness is hard. These five fundamentals will set you up for long-term success from day one.',
-		image: '/images/blog-training.jpg',
+		image: '/images/blog-training',
 		date: 'Apr 8, 2026',
-		dateISO: '2026-04-08',
+		dateISO: '2026-04-08T09:00:00+05:30',
 		read: '6 min read',
 		body: [
 			'Most beginners quit in the first six weeks — not because training is hard, but because they start wrong. Too much weight, too many exercises, no plan, no recovery. These five principles fix all of that.',
@@ -144,9 +144,9 @@ export const posts: Post[] = [
 		title: 'What to Eat Before and After Training for Maximum Gains',
 		excerpt:
 			'Nutrition timing is everything. Learn exactly what to eat and when to maximise your training output.',
-		image: '/images/blog-nutrition.jpg',
+		image: '/images/blog-nutrition',
 		date: 'Mar 25, 2026',
-		dateISO: '2026-03-25',
+		dateISO: '2026-03-25T09:00:00+05:30',
 		read: '5 min read',
 		body: [
 			'You can train perfectly and still stall if your food is wrong. Timing matters less than totals — but around training, a little planning goes a long way.',
@@ -166,9 +166,9 @@ export const posts: Post[] = [
 		title: 'How to Stay Consistent When Motivation Runs Out',
 		excerpt:
 			'Motivation fades. Discipline wins. Here is how to build the mental systems that keep you showing up every day.',
-		image: '/images/blog-mindset.jpg',
+		image: '/images/blog-mindset',
 		date: 'Mar 10, 2026',
-		dateISO: '2026-03-10',
+		dateISO: '2026-03-10T09:00:00+05:30',
 		read: '4 min read',
 		body: [
 			'Motivation is a terrible plan. It shows up on day one and disappears by week three. The people who transform are not more motivated — they have better systems.',
@@ -191,21 +191,21 @@ export const testimonials = [
 	{
 		name: 'Rohan Sharma',
 		role: 'Lost 14 kg in 5 months',
-		image: '/images/client-rohan.jpg',
+		image: '/images/client-rohan',
 		quote:
 			'I had joined three gyms before and quit all of them. Arjun is the first coach who actually tracked everything — my food, my sleep, my lifts. 14 kilos down, and I have kept it off for a year.'
 	},
 	{
 		name: 'Priya Nair',
 		role: 'First pull-up at 34',
-		image: '/images/client-priya.jpg',
+		image: '/images/client-priya',
 		quote:
 			'As a working mother I thought training was not for me. The online programme fit around my life, and the weekly video reviews kept me honest. I did my first pull-up last month.'
 	},
 	{
 		name: 'Kabir Malhotra',
 		role: 'Gained 6 kg lean muscle',
-		image: '/images/client-kabir.jpg',
+		image: '/images/client-kabir',
 		quote:
 			'I was eating everything and gaining nothing. The nutrition plan fixed my protein without making me hate food, and my bench went from 60 to 100 kilos in six months.'
 	}
@@ -216,6 +216,7 @@ export const pricing = [
 		name: 'Starter',
 		price: '₹4,999',
 		per: '/ month',
+		image: '/images/program-online',
 		blurb: 'For self-starters who want a plan, not a babysitter.',
 		features: ['Online programme, rebuilt monthly', 'Video demo for every exercise', 'Nutrition targets included', 'Monthly progress review'],
 		cta: 'Start online',
@@ -225,6 +226,7 @@ export const pricing = [
 		name: 'Signature 1-on-1',
 		price: '₹24,999',
 		per: '/ month',
+		image: '/images/program-1on1',
 		blurb: 'The full coaching experience. Fastest results, full stop.',
 		features: [
 			'12 one-on-one sessions / month',
@@ -239,6 +241,7 @@ export const pricing = [
 		name: 'Group',
 		price: '₹7,999',
 		per: '/ month',
+		image: '/images/program-group',
 		blurb: 'Small-batch energy at a fraction of the price.',
 		features: ['Unlimited group batches', 'Max 8 people per batch', 'Morning + evening slots', 'Monthly fitness testing'],
 		cta: 'Join a batch',
@@ -285,7 +288,7 @@ export const faqs = [
 export const transformations = [
 	{
 		name: 'Rohan Sharma',
-		image: '/images/client-rohan.jpg',
+		image: '/images/client-rohan',
 		programme: '1-on-1 + Nutrition',
 		duration: '20 weeks',
 		metrics: [
@@ -296,7 +299,7 @@ export const transformations = [
 	},
 	{
 		name: 'Priya Nair',
-		image: '/images/client-priya.jpg',
+		image: '/images/client-priya',
 		programme: 'Online Programme',
 		duration: '12 weeks',
 		metrics: [
@@ -307,7 +310,7 @@ export const transformations = [
 	},
 	{
 		name: 'Kabir Malhotra',
-		image: '/images/client-kabir.jpg',
+		image: '/images/client-kabir',
 		programme: '1-on-1 + Nutrition',
 		duration: '24 weeks',
 		metrics: [

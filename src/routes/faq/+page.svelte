@@ -46,7 +46,7 @@
 					onclick={() => (openFaq = openFaq === i ? null : i)}
 				>
 					{faq.q}
-					<span class="shrink-0 text-xl text-flame" aria-hidden="true">{openFaq === i ? '−' : '+'}</span>
+					<span class="shrink-0 text-xl text-ember" aria-hidden="true">{openFaq === i ? '−' : '+'}</span>
 				</button>
 				{#if openFaq === i}
 					<p class="px-5 pb-5 text-sm leading-relaxed text-ash">{faq.a}</p>
@@ -55,7 +55,7 @@
 		{/each}
 	</div>
 
-	<div class="mt-12 rounded-lg bg-flame p-8 text-center">
+	<div class="mt-12 rounded-lg bg-flame-dark p-8 text-center">
 		<h2 class="font-display text-3xl tracking-wide text-white uppercase">Still unsure?</h2>
 		<p class="mx-auto mt-3 max-w-md text-white/85">
 			Book a free 30-minute session. You get an assessment, an honest plan, and answers — no sales pitch.

@@ -52,11 +52,11 @@
 >
 	<!-- Scroll progress bar -->
 	<div class="absolute inset-x-0 top-0 h-[3px] bg-transparent" aria-hidden="true">
-		<div class="h-full bg-flame transition-[width] duration-100" style="width: {progress * 100}%"></div>
+		<div class="h-full bg-flame-dark transition-[width] duration-100" style="width: {progress * 100}%"></div>
 	</div>
 	<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-[72px] sm:px-6 lg:px-8">
-		<a href="/" class="flex shrink-0 items-center gap-2.5" onclick={close} aria-label="ForgeFit home">
-			<span class="grid size-9 place-items-center rounded-md bg-flame font-display text-lg text-white shadow-[0_0_20px_-4px_#e8380d]">F</span>
+		<a href="/" class="flex shrink-0 items-center gap-2.5" onclick={close} aria-label="ForgeFit">
+			<span class="grid size-9 place-items-center rounded-md bg-flame-dark font-display text-lg text-white shadow-[0_0_20px_-4px_#e8380d]">F</span>
 			<span class="font-display text-xl tracking-[0.08em] text-white sm:text-2xl">
 				FORGE<span class="text-flame">FIT</span>
 			</span>
@@ -74,7 +74,7 @@
 				>
 					{link.label}
 					<span
-						class="absolute -bottom-0.5 left-0 h-[2px] bg-flame transition-all duration-300 {active
+						class="absolute -bottom-0.5 left-0 h-[2px] bg-flame-dark transition-all duration-300 {active
 							? 'w-full'
 							: 'w-0 group-hover:w-full'}"
 						aria-hidden="true"
@@ -86,7 +86,7 @@
 		<div class="flex items-center gap-2.5 sm:gap-3">
 			<a
 				href="/book"
-				class="rounded-sm bg-flame px-3.5 py-2 text-[11px] font-bold tracking-widest text-white uppercase shadow-[0_0_24px_-6px_#e8380d] transition hover:bg-flame-dark sm:px-5 sm:py-2.5 sm:text-xs"
+				class="rounded-sm bg-flame-dark px-3.5 py-2 text-[11px] font-bold tracking-widest text-white uppercase shadow-[0_0_24px_-6px_#e8380d] transition hover:bg-flame-deep sm:px-5 sm:py-2.5 sm:text-xs"
 			>
 				Book now
 			</a>
@@ -138,9 +138,9 @@
 						<a
 							href={link.href}
 							onclick={close}
-							class="flex items-baseline gap-4 py-4 font-display text-4xl tracking-wide text-bone uppercase transition hover:text-flame"
+							class="flex items-baseline gap-4 py-4 font-display text-4xl tracking-wide text-bone uppercase transition hover:text-ember"
 						>
-							<span class="font-sans text-xs font-bold tracking-widest text-flame">0{i + 1}</span>
+							<span class="font-sans text-xs font-bold tracking-widest text-ember">0{i + 1}</span>
 							{link.label}
 						</a>
 					</li>
@@ -151,14 +151,13 @@
 			<a
 				href="/book"
 				onclick={close}
-				class="block rounded-sm bg-flame px-6 py-4 text-center text-sm font-bold tracking-widest text-white uppercase shadow-[0_0_32px_-8px_#e8380d]"
+				class="block rounded-sm bg-flame-dark px-6 py-4 text-center text-sm font-bold tracking-widest text-white uppercase shadow-[0_0_32px_-8px_#e8380d]"
 			>
 				Book a free session
 			</a>
-			<p class="mt-6 text-center text-sm text-ash">
-				<a class="font-semibold text-white" href="tel:+919876543210">{site.phone}</a>
-				<span class="mx-2 text-white/25">·</span>
-				<a class="text-white" href="mailto:train@forgefit.in">{site.email}</a>
+			<p class="mt-6 flex flex-col items-center gap-1 text-center text-sm text-ash">
+				<a class="inline-flex min-h-11 items-center py-2 font-semibold text-white" href="tel:+919876543210">{site.phone}</a>
+				<a class="inline-flex min-h-11 items-center py-2 text-white" href="mailto:train@forgefit.in">{site.email}</a>
 			</p>
 			<p class="mt-2 text-center text-xs text-ash">{site.hours} · {site.city}</p>
 		</div>

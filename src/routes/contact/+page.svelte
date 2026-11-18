@@ -29,15 +29,15 @@
 			</p>
 			<div class="mt-8 space-y-4">
 				<div class="rounded-lg border border-line bg-coal p-5">
-					<p class="text-xs font-bold tracking-widest text-flame uppercase">Phone / WhatsApp</p>
+					<p class="text-xs font-bold tracking-widest text-ember uppercase">Phone / WhatsApp</p>
 					<a href="tel:+919876543210" class="mt-1 block text-lg font-semibold text-white">{site.phone}</a>
 				</div>
 				<div class="rounded-lg border border-line bg-coal p-5">
-					<p class="text-xs font-bold tracking-widest text-flame uppercase">Email</p>
+					<p class="text-xs font-bold tracking-widest text-ember uppercase">Email</p>
 					<a href="mailto:train@forgefit.in" class="mt-1 block text-lg font-semibold text-white">{site.email}</a>
 				</div>
 				<div class="rounded-lg border border-line bg-coal p-5">
-					<p class="text-xs font-bold tracking-widest text-flame uppercase">Studio</p>
+					<p class="text-xs font-bold tracking-widest text-ember uppercase">Studio</p>
 					<p class="mt-1 text-white">Andheri West, Mumbai</p>
 					<p class="text-sm text-ash">{site.hours}</p>
 				</div>
@@ -46,7 +46,7 @@
 
 		<div use:reveal={120}>
 			{#if sent}
-				<div class="rounded-lg border border-flame/50 bg-flame/10 p-8 text-center">
+				<div class="rounded-lg border border-flame/50 bg-flame-dark/10 p-8 text-center">
 					<p class="font-display text-3xl text-white uppercase">Message received ✓</p>
 					<p class="mt-3 text-bone/85">
 						Thanks, {name}! A coach will get back to you within one working day.
@@ -77,7 +77,7 @@
 					></textarea>
 					<button
 						type="submit"
-						class="mt-6 w-full rounded-sm bg-flame py-4 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+						class="mt-6 w-full rounded-sm bg-flame-dark py-4 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 					>
 						Send message
 					</button>

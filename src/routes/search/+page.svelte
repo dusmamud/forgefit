@@ -56,7 +56,7 @@
 		/>
 		<button
 			type="submit"
-			class="shrink-0 rounded-sm bg-flame px-7 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+			class="shrink-0 rounded-sm bg-flame-dark px-7 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 		>
 			Search
 		</button>
@@ -73,7 +73,7 @@
 					class="block rounded-lg border border-line bg-coal p-5 transition hover:border-flame/60"
 					use:reveal={i * 40}
 				>
-					<p class="text-[11px] font-bold tracking-widest text-flame uppercase">{r.type}</p>
+					<p class="text-[11px] font-bold tracking-widest text-ember uppercase">{r.type}</p>
 					<h2 class="mt-1 font-semibold text-white">{r.title}</h2>
 					<p class="mt-1 text-sm text-ash">{r.desc}</p>
 				</a>
@@ -83,7 +83,7 @@
 					<p class="font-semibold text-white">Nothing found for “{q.trim()}”.</p>
 					<p class="mt-2 text-sm text-ash">
 						Try a program name (nutrition, group), a topic (protein, motivation) or visit the
-						<a class="font-semibold text-flame" href="/faq">FAQ</a>.
+						<a class="font-semibold text-ember" href="/faq">FAQ</a>.
 					</p>
 				</div>
 			{/if}

@@ -15,10 +15,14 @@
 				'@type': 'Product',
 				name: `ForgeFit ${plan.name}`,
 				description: plan.blurb,
+				// Merchant listings REQUIRE an image — its absence made all 3
+				// products INVALID in the Rich Results Test (audit 2026-11-18).
+				image: `https://forgefits.pages.dev${plan.image}-1200.jpg`,
 				offers: {
 					'@type': 'Offer',
 					price: planPrices[plan.name],
 					priceCurrency: 'INR',
+					availability: 'https://schema.org/InStock',
 					url: 'https://forgefits.pages.dev/pricing'
 				}
 			}
@@ -49,12 +53,12 @@
 		{#each pricing as plan, i}
 			<div
 				class="rounded-lg border p-7 {plan.featured
-					? 'border-flame bg-flame/10 shadow-[0_0_50px_-12px_#e8380d]'
+					? 'border-flame bg-flame-dark/10 shadow-[0_0_50px_-12px_#e8380d]'
 					: 'border-line bg-coal'}"
 				use:reveal={i * 100}
 			>
 				{#if plan.featured}
-					<p class="inline-block rounded-sm bg-flame px-3 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
+					<p class="inline-block rounded-sm bg-flame-dark px-3 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
 						Most popular
 					</p>
 				{/if}
@@ -65,13 +69,13 @@
 				<p class="mt-2 text-ash">{plan.blurb}</p>
 				<ul class="mt-6 space-y-3 text-bone/85">
 					{#each plan.features as f}
-						<li class="flex gap-2.5"><span class="text-flame">✓</span> {f}</li>
+						<li class="flex gap-2.5"><span class="text-ember">✓</span> {f}</li>
 					{/each}
 				</ul>
 				<a
 					href="/book"
 					class="mt-7 block rounded-sm py-3.5 text-center text-sm font-bold tracking-widest uppercase transition {plan.featured
-						? 'bg-flame text-white hover:bg-flame-dark'
+						? 'bg-flame-dark text-white hover:bg-flame-deep'
 						: 'border border-white/25 text-white hover:border-white'}"
 				>
 					{plan.cta}
@@ -90,7 +94,7 @@
 					<tr class="border-b border-line bg-coal text-white">
 						<th class="px-5 py-4 font-bold">What is included</th>
 						{#each pricing as plan}
-							<th class="px-5 py-4 font-bold">{plan.name}<br /><span class="font-normal text-flame">{plan.price}{plan.per}</span></th>
+							<th class="px-5 py-4 font-bold">{plan.name}<br /><span class="font-normal text-ember">{plan.price}{plan.per}</span></th>
 						{/each}
 					</tr>
 				</thead>
@@ -99,7 +103,7 @@
 						<tr class="border-b border-line last:border-0 {ri % 2 === 1 ? 'bg-coal/60' : 'bg-ink'}">
 							<td class="px-5 py-3.5 text-bone/85">{row.label}</td>
 							{#each row.values as v}
-								<td class="px-5 py-3.5 {v === '✓' ? 'font-bold text-flame' : 'text-ash'}">{v}</td>
+								<td class="px-5 py-3.5 {v === '✓' ? 'font-bold text-ember' : 'text-ash'}">{v}</td>
 							{/each}
 						</tr>
 					{/each}
@@ -122,10 +126,10 @@
 		<div class="mt-8 grid gap-4 md:grid-cols-3">
 			{#each testimonials as t, i}
 				<figure class="rounded-lg border border-line bg-coal p-5" use:reveal={i * 80}>
-					<p class="text-lg tracking-widest text-flame" aria-label="5 out of 5 stars">★★★★★</p>
+					<p class="text-lg tracking-widest text-ember" aria-label="5 out of 5 stars">★★★★★</p>
 					<blockquote class="mt-3 text-sm leading-relaxed text-bone/85">“{t.quote}”</blockquote>
 					<figcaption class="mt-4 text-sm font-semibold text-white">
-						{t.name} <span class="font-normal text-flame">· {t.role}</span>
+						{t.name} <span class="font-normal text-ember">· {t.role}</span>
 					</figcaption>
 				</figure>
 			{/each}

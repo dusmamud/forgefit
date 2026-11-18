@@ -2,6 +2,7 @@
 	import { programs } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import { speakableJsonLd } from '#lib/seo';
+	import Picture from '#lib/components/Picture.svelte';
 
 	const itemListJsonLd = JSON.stringify({
 		'@context': 'https://schema.org',
@@ -43,22 +44,23 @@
 				class="group overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
 				use:reveal={i * 80}
 			>
-				<img
-					src={program.image}
+				<Picture
+					base={program.image}
 					alt={program.title}
-					class="aspect-[16/9] w-full object-cover transition group-hover:scale-[1.02]"
+					cls="aspect-[16/9] w-full object-cover transition group-hover:scale-[1.02]"
 					loading="lazy"
-					width="800"
-					height="450"
+					width={800}
+					height={450}
+					sizes="(min-width: 1024px) 600px, 100vw"
 				/>
 				<div class="p-6">
-					<p class="text-xs font-bold tracking-widest text-flame">{program.num}</p>
+					<p class="text-xs font-bold tracking-widest text-ember">{program.num}</p>
 					<h2 class="mt-2 font-display text-3xl tracking-wide text-white uppercase">{program.title}</h2>
 					<p class="mt-2 leading-relaxed text-ash">{program.desc}</p>
 					<p class="mt-4 text-sm font-semibold text-white">
 						{program.price} <span class="font-normal text-ash">· {program.duration}</span>
 					</p>
-					<span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-flame uppercase">
+					<span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-ember uppercase">
 						See details →
 					</span>
 				</div>
@@ -66,7 +68,7 @@
 		{/each}
 	</div>
 
-	<div class="mt-12 rounded-lg bg-flame p-8 text-center" use:reveal>
+	<div class="mt-12 rounded-lg bg-flame-dark p-8 text-center" use:reveal>
 		<h2 class="font-display text-3xl tracking-wide text-white uppercase sm:text-4xl">Not sure which one fits?</h2>
 		<p class="mx-auto mt-3 max-w-lg text-white/85">
 			Book a free session. We assess, we talk, and we tell you honestly which program suits you — even if the

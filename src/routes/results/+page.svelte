@@ -2,12 +2,14 @@
 	import { testimonials, transformations } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import { speakableJsonLd } from '#lib/seo';
+	import Picture from '#lib/components/Picture.svelte';
 
+	// Same canonical business entity as the layout block (same @id) — the
+	// reviews attach to that one entity instead of a second sparse copy.
 	const reviewsJsonLd = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'ProfessionalService',
-		name: 'ForgeFit',
-		url: 'https://forgefits.pages.dev/',
+		'@id': 'https://forgefits.pages.dev/#business',
 		aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '200' },
 		review: testimonials.map((t) => ({
 			'@type': 'Review',
@@ -39,7 +41,7 @@
 	</p>
 
 	<div class="mt-10 grid gap-4 sm:grid-cols-3" use:reveal>
-		<div class="rounded-lg bg-flame p-6 text-center">
+		<div class="rounded-lg bg-flame-dark p-6 text-center">
 			<p class="font-display text-6xl text-white">500+</p>
 			<p class="mt-1 text-sm text-white/85">Clients trained</p>
 		</div>
@@ -64,10 +66,10 @@
 		{#each transformations as t, i}
 			<article class="overflow-hidden rounded-lg border border-line bg-coal" use:reveal={i * 100}>
 				<div class="flex items-center gap-4 p-6 pb-0">
-					<img src={t.image} alt={t.name} class="size-14 rounded-full object-cover" loading="lazy" width="112" height="112" />
+					<Picture base={t.image} alt={t.name} cls="size-14 rounded-full object-cover" loading="lazy" width={112} height={112} widths={[200]} sizes="112px" />
 					<div>
 						<h3 class="font-display text-xl tracking-wide text-white uppercase">{t.name}</h3>
-						<p class="text-xs text-flame">{t.programme} · {t.duration}</p>
+						<p class="text-xs text-ember">{t.programme} · {t.duration}</p>
 					</div>
 				</div>
 				<ul class="space-y-3 p-6">
@@ -75,7 +77,7 @@
 						<li class="flex items-center justify-between gap-3 border-b border-line pb-3 text-sm last:border-0 last:pb-0">
 							<span class="text-ash">{m.label}</span>
 							<span class="text-bone/85">
-								{m.from} <span class="mx-1 text-flame" aria-hidden="true">→</span>
+								{m.from} <span class="mx-1 text-ember" aria-hidden="true">→</span>
 								<strong class="text-white">{m.to}</strong>
 							</span>
 						</li>
@@ -95,20 +97,20 @@
 	<div class="mt-10 grid gap-4 md:grid-cols-3">
 		{#each testimonials as t, i}
 			<figure class="flex flex-col rounded-lg border border-line bg-coal p-6" use:reveal={i * 100}>
-				<p class="text-2xl tracking-widest text-flame" aria-label="5 out of 5 stars">★★★★★</p>
+				<p class="text-2xl tracking-widest text-ember" aria-label="5 out of 5 stars">★★★★★</p>
 				<blockquote class="mt-4 grow leading-relaxed text-bone/85">“{t.quote}”</blockquote>
 				<figcaption class="mt-6 flex items-center gap-3 border-t border-line pt-5">
-					<img src={t.image} alt={t.name} class="size-12 rounded-full object-cover" loading="lazy" width="96" height="96" />
+					<Picture base={t.image} alt={t.name} cls="size-12 rounded-full object-cover" loading="lazy" width={96} height={96} widths={[200]} sizes="96px" />
 					<div>
 						<p class="font-semibold text-white">{t.name}</p>
-						<p class="text-xs text-flame">{t.role}</p>
+						<p class="text-xs text-ember">{t.role}</p>
 					</div>
 				</figcaption>
 			</figure>
 		{/each}
 	</div>
 
-	<div class="mt-12 rounded-lg bg-flame p-8 text-center" use:reveal>
+	<div class="mt-12 rounded-lg bg-flame-dark p-8 text-center" use:reveal>
 		<h2 class="font-display text-3xl tracking-wide text-white uppercase sm:text-4xl">Your story could be next</h2>
 		<p class="mx-auto mt-3 max-w-lg text-white/85">
 			Every result above started with one free session. No experience needed, no fitness level required.

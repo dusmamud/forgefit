@@ -5,8 +5,32 @@
 @import '@fontsource/inter/latin-600.css';
 @import '@fontsource/inter/latin-700.css';
 
+/* Fallback face for Anton: a wide system sans (DejaVu / Liberation) scaled
+   down with size-adjust so its advance widths match Anton's condensed
+   metrics. Measured 2026-11-18 (canvas + rendered boxes, 1440px):
+   "FORGE YOUR" 104px — Anton 455px vs DejaVu 681px (ratio 0.67);
+   "FORGEFIT" 336px — Anton 1155px vs DejaVu 1752px (ratio 0.66).
+   Without this, the h1 wraps to 3 lines in the fallback until Anton loads
+   (281px vs 187px) and the vertically-centred hero column shifts — the
+   desktop CLS 0.14. Arial Narrow is deliberately NOT in this face's src:
+   on systems that have it (Windows/Mac) it is already condensed and close
+   to Anton, so the stack falls through to it unscaled. */
+@font-face {
+	font-family: 'Anton-fallback';
+	src: local('DejaVu Sans'), local('Liberation Sans');
+	size-adjust: 66%;
+	/* Anton's metrics (upm 2048): ascent 2409 = 117.6%, descent 674 = 32.9%,
+	   lineGap 0. The overrides are SCALED by size-adjust (verified
+	   empirically 2026-11-18: with 117.6%/32.9% the fallback's em box sat
+	   26px too low), so the values here are Anton's percentages divided by
+	   the 66% size-adjust: 117.6/0.66 = 178.2, 32.9/0.66 = 49.8. */
+	ascent-override: 178.2%;
+	descent-override: 49.8%;
+	line-gap-override: 0%;
+}
+
 @theme {
-	--font-display: 'Anton', 'Arial Narrow', sans-serif;
+	--font-display: 'Anton', 'Anton-fallback', 'Arial Narrow', sans-serif;
 	--font-sans: 'Inter', system-ui, sans-serif;
 	--color-ink: #0a0a0b;
 	--color-coal: #121214;
@@ -14,7 +38,9 @@
 	--color-line: #26262a;
 	--color-flame: #e8380d;
 	--color-flame-dark: #b92a08;
+	--color-flame-deep: #9c2406;
 	--color-ember: #ff5a26;
+	--color-ember-light: #ff8a5c;
 	--color-bone: #f5f1ea;
 	--color-ash: #a3a3ab;
 }

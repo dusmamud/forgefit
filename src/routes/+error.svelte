@@ -5,7 +5,7 @@
 <svelte:head><title>Page not found — ForgeFit</title></svelte:head>
 
 <section class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 lg:py-32">
-	<p class="font-display text-8xl text-flame">{page.status}</p>
+	<p class="font-display text-8xl text-ember">{page.status}</p>
 	<h1 class="mt-4 font-display text-4xl tracking-wide text-white uppercase sm:text-5xl">
 		{#if page.status === 404}
 			This page did not make it through the workout
@@ -23,7 +23,7 @@
 	<div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
 		<a
 			href="/"
-			class="rounded-sm bg-flame px-8 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+			class="rounded-sm bg-flame-dark px-8 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 		>
 			Back to home
 		</a>

@@ -81,18 +81,20 @@ def card(bg_path, title_lines, subtitle, out_name, trainer=False):
         y += 112
     d.text((64, y + 18), subtitle, font=f_sub, fill=(255, 210, 200))
     d.text((64, H - 56), 'forgefits.pages.dev', font=f_small, fill=(255, 255, 255, 200))
-    bg.save(os.path.join(OUT, out_name), quality=92)
+    # JPG (not PNG): OG cards are fetched by scrapers, and JPG at q82 is
+    # ~5x smaller (audit fix 2026-11-18: og-tools.png was 830 KB, JPG is 107 KB).
+    bg.save(os.path.join(OUT, out_name), quality=82)
     print(out_name, bg.size)
 
 
 CARDS = [
-    (None, ['FORGE YOUR', 'BEST SELF'], 'Certified personal training · Mumbai', 'og-default.png', True),
-    (os.path.join(IMG, 'program-1on1.jpg'), ['PROGRAMS', 'BUILT TO WIN'], '1-on-1 · Online · Nutrition · Group training', 'og-programs.png', False),
-    (os.path.join(IMG, 'coach.jpg'), ['SIMPLE', 'PRICING'], 'Plans from ₹4,999/month · No lock-in', 'og-pricing.png', False),
-    (os.path.join(IMG, 'coach.jpg'), ['MEET ARJUN', 'MEHTA'], 'ACE Certified · 10+ years · 500+ clients', 'og-about.png', False),
-    (os.path.join(IMG, 'program-group.jpg'), ['REAL RESULTS.', 'REAL PEOPLE.'], '100% satisfaction · 4.9/5 from 200+ reviews', 'og-results.png', False),
-    (os.path.join(IMG, 'blog-training.jpg'), ['FORGE YOUR', 'MINDSET'], 'Training, nutrition & mindset — free articles', 'og-blog.png', False),
-    (os.path.join(IMG, 'blog-nutrition.jpg'), ['FREE FITNESS', 'TOOLS'], 'BMI & calorie calculator — instant, private', 'og-tools.png', False),
+    (None, ['FORGE YOUR', 'BEST SELF'], 'Certified personal training · Mumbai', 'og-default.jpg', True),
+    (os.path.join(IMG, 'program-1on1-1200.jpg'), ['PROGRAMS', 'BUILT TO WIN'], '1-on-1 · Online · Nutrition · Group training', 'og-programs.jpg', False),
+    (os.path.join(IMG, 'coach-1200.jpg'), ['SIMPLE', 'PRICING'], 'Plans from ₹4,999/month · No lock-in', 'og-pricing.jpg', False),
+    (os.path.join(IMG, 'coach-1200.jpg'), ['MEET ARJUN', 'MEHTA'], 'ACE Certified · 10+ years · 500+ clients', 'og-about.jpg', False),
+    (os.path.join(IMG, 'program-group-1200.jpg'), ['REAL RESULTS.', 'REAL PEOPLE.'], '100% satisfaction · 4.9/5 from 200+ reviews', 'og-results.jpg', False),
+    (os.path.join(IMG, 'blog-training-1200.jpg'), ['FORGE YOUR', 'MINDSET'], 'Training, nutrition & mindset — free articles', 'og-blog.jpg', False),
+    (os.path.join(IMG, 'blog-nutrition-1200.jpg'), ['FREE FITNESS', 'TOOLS'], 'BMI & calorie calculator — instant, private', 'og-tools.jpg', False),
 ]
 
 for bg, title, sub, name, trainer in CARDS:

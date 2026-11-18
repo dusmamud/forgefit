@@ -10,7 +10,7 @@
 		<div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
 			<div>
 				<a href="/" class="flex items-center gap-2.5">
-					<span class="grid size-9 place-items-center rounded-md bg-flame font-display text-lg text-white">F</span>
+					<span class="grid size-9 place-items-center rounded-md bg-flame-dark font-display text-lg text-white">F</span>
 					<span class="font-display text-xl tracking-wide text-white">
 						FORGE<span class="text-flame">FIT</span>
 					</span>
@@ -57,13 +57,13 @@
 				</p>
 				<a
 					href="/book"
-					class="mt-4 inline-block rounded-sm bg-flame px-5 py-2.5 text-xs font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+					class="mt-4 inline-block rounded-sm bg-flame-dark px-5 py-2.5 text-xs font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 				>
 					Book now
 				</a>
-				<p class="mt-4 text-sm text-ash">
-					<a class="hover:text-white" href="tel:+919876543210">{site.phone}</a><br />
-					<a class="hover:text-white" href="mailto:train@forgefit.in">{site.email}</a>
+				<p class="mt-4 flex flex-col items-start gap-1 text-sm text-ash">
+					<a class="inline-flex min-h-11 items-center py-2 hover:text-white" href="tel:+919876543210">{site.phone}</a>
+					<a class="inline-flex min-h-11 items-center py-2 hover:text-white" href="mailto:train@forgefit.in">{site.email}</a>
 				</p>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 				Training tip, one recipe, one client story. No spam, unsubscribe anytime.
 			</p>
 			{#if subscribed}
-				<p class="mt-4 rounded-sm bg-flame/10 px-4 py-3 text-sm font-semibold text-white">
+				<p class="mt-4 rounded-sm bg-flame-dark/10 px-4 py-3 text-sm font-semibold text-white">
 					Thanks — you are on the list. Your first email lands this week.
 				</p>
 			{:else}
@@ -96,7 +96,7 @@
 					/>
 					<button
 						type="submit"
-						class="shrink-0 rounded-sm bg-flame px-6 py-3 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+						class="shrink-0 rounded-sm bg-flame-dark px-6 py-3 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 					>
 						Subscribe
 					</button>

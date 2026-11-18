@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { groupSchedule, sampleDay } from '#lib/data';
 	import { reveal } from '#lib/reveal';
+	import Picture from '#lib/components/Picture.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -13,11 +14,10 @@
 			'@type': 'Service',
 			name: program.title,
 			description: program.desc,
-			provider: {
-				'@type': 'ProfessionalService',
-				name: 'ForgeFit',
-				url: 'https://forgefits.pages.dev/'
-			},
+			// One canonical business entity (defined in +layout.svelte) — a
+			// duplicated nested block reads as a second, sparse business in
+			// Rich Results. Reference it by @id instead.
+			provider: { '@id': 'https://forgefits.pages.dev/#business' },
 			areaServed: 'Mumbai, India',
 			url: `https://forgefits.pages.dev/programs/${program.slug}`
 		})
@@ -48,12 +48,13 @@
 </svelte:head>
 
 <section class="relative overflow-hidden">
-	<img
-		src={program.image}
+	<Picture
+		base={program.image}
 		alt={program.title}
-		class="h-[320px] w-full object-cover opacity-60 sm:h-[420px]"
-		width="1200"
-		height="600"
+		cls="h-[320px] w-full object-cover opacity-60 sm:h-[420px]"
+		width={1200}
+		height={600}
+		sizes="100vw"
 		fetchpriority="high"
 	/>
 	<div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
@@ -74,7 +75,7 @@
 			<ul class="mt-5 space-y-3">
 				{#each program.includes as item}
 					<li class="flex gap-3 rounded-lg border border-line bg-coal px-5 py-4 text-bone/90">
-						<span class="font-bold text-flame">✓</span> {item}
+						<span class="font-bold text-ember">✓</span> {item}
 					</li>
 				{/each}
 			</ul>
@@ -83,12 +84,12 @@
 		</div>
 
 		<aside class="h-fit rounded-lg border border-line bg-coal p-6 lg:sticky lg:top-24" use:reveal={120}>
-			<p class="text-xs font-bold tracking-widest text-flame uppercase">Pricing</p>
+			<p class="text-xs font-bold tracking-widest text-ember uppercase">Pricing</p>
 			<p class="mt-2 font-display text-4xl text-white">{program.price}</p>
 			<p class="mt-2 text-sm text-ash">{program.duration}</p>
 			<a
 				href="/book?program={program.slug}"
-				class="mt-6 block rounded-sm bg-flame py-3.5 text-center text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+				class="mt-6 block rounded-sm bg-flame-dark py-3.5 text-center text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 			>
 				Book a free session
 			</a>
@@ -112,7 +113,7 @@
 						<ul class="mt-4 space-y-3 text-sm">
 							{#each option.meals as m}
 								<li class="border-b border-line pb-3 last:border-0 last:pb-0">
-									<p class="text-xs font-bold tracking-widest text-flame uppercase">{m.meal}</p>
+									<p class="text-xs font-bold tracking-widest text-ember uppercase">{m.meal}</p>
 									<p class="mt-1 leading-relaxed text-bone/85">{m.items}</p>
 								</li>
 							{/each}
@@ -127,7 +128,7 @@
 		<div class="mt-16" use:reveal>
 			<h2 class="font-display text-3xl tracking-wide text-white uppercase">Weekly schedule</h2>
 			<p class="mt-2 max-w-xl text-sm leading-relaxed text-ash">
-				Small batches, never more than 8 people. Book your batch from the <a class="font-semibold text-flame" href="/book?program=group-training">booking page</a> — pick a day and a slot.
+				Small batches, never more than 8 people. Book your batch from the <a class="font-semibold text-ember" href="/book?program=group-training">booking page</a> — pick a day and a slot.
 			</p>
 			<div class="mt-6 overflow-hidden rounded-lg border border-line">
 				{#each groupSchedule as row, i}
@@ -148,13 +149,14 @@
 				class="group overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
 				use:reveal={i * 80}
 			>
-				<img
-					src={other.image}
+				<Picture
+					base={other.image}
 					alt={other.title}
-					class="aspect-[16/9] w-full object-cover"
+					cls="aspect-[16/9] w-full object-cover"
 					loading="lazy"
-					width="600"
-					height="338"
+					width={600}
+					height={338}
+					sizes="(min-width: 1024px) 400px, 100vw"
 				/>
 				<div class="p-5">
 					<h3 class="font-display text-xl tracking-wide text-white uppercase">{other.title}</h3>

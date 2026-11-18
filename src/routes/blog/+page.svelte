@@ -2,6 +2,7 @@
 	import { posts } from '#lib/data';
 	import { reveal } from '#lib/reveal';
 	import { speakableJsonLd } from '#lib/seo';
+	import Picture from '#lib/components/Picture.svelte';
 
 	let category = $state('All');
 	const categories = ['All', ...new Set(posts.map((p) => p.category))];
@@ -33,7 +34,7 @@
 				type="button"
 				aria-pressed={category === c}
 				class="rounded-full border px-4 py-2 text-sm font-semibold transition {category === c
-					? 'border-flame bg-flame text-white'
+					? 'border-flame bg-flame-dark text-white'
 					: 'border-line bg-coal text-bone/85 hover:border-flame hover:text-white'}"
 				onclick={() => (category = c)}>{c}</button
 			>
@@ -47,23 +48,24 @@
 				class="card-zoom group overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
 				use:reveal={i * 100}
 			>
-				<img
-					src={post.image}
+				<Picture
+					base={post.image}
 					alt={post.title}
-					class="aspect-[16/10] w-full object-cover"
+					cls="aspect-[16/10] w-full object-cover"
 					loading="lazy"
-					width="800"
-					height="500"
+					width={800}
+					height={500}
+					sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
 				/>
 				<div class="p-5">
-					<p class="inline-block rounded-sm bg-flame px-2.5 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
+					<p class="inline-block rounded-sm bg-flame-dark px-2.5 py-1 text-[11px] font-bold tracking-widest text-white uppercase">
 						{post.category}
 					</p>
 					<h2 class="mt-3 text-lg leading-snug font-bold text-white">{post.title}</h2>
 					<p class="mt-2 text-sm leading-relaxed text-ash">{post.excerpt}</p>
 					<p class="mt-4 flex items-center justify-between text-xs text-ash">
 						<span>{post.date} · {post.read}</span>
-						<span class="font-bold tracking-widest text-flame uppercase">Read more →</span>
+						<span class="font-bold tracking-widest text-ember uppercase">Read more →</span>
 					</p>
 				</div>
 			</a>

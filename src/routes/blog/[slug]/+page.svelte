@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { reveal } from '#lib/reveal';
+	import Picture from '#lib/components/Picture.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -12,9 +13,14 @@
 			'@type': 'BlogPosting',
 			headline: post.title,
 			description: post.excerpt,
-			image: `https://forgefits.pages.dev${post.image}`,
+			image: `https://forgefits.pages.dev${post.image}-1200.jpg`,
 			datePublished: post.dateISO,
-			author: { '@type': 'Person', name: 'Arjun Mehta', jobTitle: 'Certified Personal Trainer' },
+			author: {
+				'@type': 'Person',
+				name: 'Arjun Mehta',
+				jobTitle: 'Certified Personal Trainer',
+				url: 'https://forgefits.pages.dev/about'
+			},
 			publisher: {
 				'@type': 'Organization',
 				name: 'ForgeFit',
@@ -56,12 +62,13 @@
 	<p class="mt-4 text-sm text-ash" use:reveal={100}>
 		{post.date} · {post.read} · by Arjun Mehta, Certified Personal Trainer
 	</p>
-	<img
-		src={post.image}
+	<Picture
+		base={post.image}
 		alt={post.title}
-		class="mt-8 aspect-[16/9] w-full rounded-lg object-cover"
-		width="900"
-		height="506"
+		cls="mt-8 aspect-[16/9] w-full rounded-lg object-cover"
+		width={900}
+		height={506}
+		sizes="(min-width: 1024px) 768px, 100vw"
 		fetchpriority="high"
 	/>
 	<div class="mt-8 space-y-5 text-lg leading-relaxed text-bone/85" use:reveal>
@@ -75,13 +82,13 @@
 		<ul class="mt-3 space-y-2 text-sm">
 			{#each post.sources as s}
 				<li>
-					<a class="text-flame hover:text-ember" href={s.url} target="_blank" rel="noopener">{s.label} ↗</a>
+					<a class="text-ember hover:text-ember-light" href={s.url} target="_blank" rel="noopener">{s.label} ↗</a>
 				</li>
 			{/each}
 		</ul>
 	</div>
 
-	<div class="mt-12 rounded-lg bg-flame p-7 text-center" use:reveal>
+	<div class="mt-12 rounded-lg bg-flame-dark p-7 text-center" use:reveal>
 		<h2 class="font-display text-3xl tracking-wide text-white uppercase">Want a plan built for you?</h2>
 		<p class="mx-auto mt-2 max-w-md text-white/85">
 			Reading helps. Coaching changes things. Your first session is free.
@@ -102,16 +109,17 @@
 				class="group overflow-hidden rounded-lg border border-line bg-coal transition hover:border-flame/60"
 				use:reveal
 			>
-				<img
-					src={other.image}
+				<Picture
+					base={other.image}
 					alt={other.title}
-					class="aspect-[16/9] w-full object-cover"
+					cls="aspect-[16/9] w-full object-cover"
 					loading="lazy"
-					width="600"
-					height="338"
+					width={600}
+					height={338}
+					sizes="(min-width: 1024px) 400px, 100vw"
 				/>
 				<div class="p-5">
-					<p class="text-[11px] font-bold tracking-widest text-flame uppercase">{other.category}</p>
+					<p class="text-[11px] font-bold tracking-widest text-ember uppercase">{other.category}</p>
 					<h3 class="mt-2 leading-snug font-bold text-white">{other.title}</h3>
 				</div>
 			</a>

@@ -77,7 +77,7 @@
 				</div>
 			</div>
 			<div class="mt-6 rounded-lg bg-ink p-5 text-center">
-				<p class="text-xs font-bold tracking-widest text-flame uppercase">Your BMI</p>
+				<p class="text-xs font-bold tracking-widest text-ember uppercase">Your BMI</p>
 				<p class="mt-1 font-display text-6xl text-white">{bmi.toFixed(1)}</p>
 				<p class="mt-1 font-semibold text-white">{bmiCategory.label}</p>
 				<p class="mt-2 text-sm text-ash">{bmiCategory.note}</p>
@@ -113,7 +113,7 @@
 				Uses the same height and weight as the BMI calculator — change them there and both tools update.
 			</p>
 			<div class="mt-6 rounded-lg bg-ink p-5 text-center">
-				<p class="text-xs font-bold tracking-widest text-flame uppercase">Maintenance calories</p>
+				<p class="text-xs font-bold tracking-widest text-ember uppercase">Maintenance calories</p>
 				<p class="mt-1 font-display text-6xl text-white">{tdee.toLocaleString('en-IN')}</p>
 				<p class="mt-1 text-sm text-ash">kcal / day · protein target {protein} / day</p>
 				<p class="mt-2 text-sm text-ash">
@@ -124,7 +124,7 @@
 		</div>
 	</div>
 
-	<div class="mt-12 rounded-lg bg-flame p-8 text-center">
+	<div class="mt-12 rounded-lg bg-flame-dark p-8 text-center">
 		<h2 class="font-display text-3xl tracking-wide text-white uppercase sm:text-4xl">
 			Numbers are the easy part
 		</h2>

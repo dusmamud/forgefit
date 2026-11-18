@@ -96,29 +96,29 @@
 				If it is not for you, walk away with the plan anyway.
 			</p>
 			<ul class="mt-6 space-y-3 text-sm text-bone/85">
-				<li class="flex gap-3"><span class="text-flame">✓</span> Movement + fitness assessment</li>
-				<li class="flex gap-3"><span class="text-flame">✓</span> One honest plan, written for you</li>
-				<li class="flex gap-3"><span class="text-flame">✓</span> No payment, no commitment</li>
+				<li class="flex gap-3"><span class="text-ember">✓</span> Movement + fitness assessment</li>
+				<li class="flex gap-3"><span class="text-ember">✓</span> One honest plan, written for you</li>
+				<li class="flex gap-3"><span class="text-ember">✓</span> No payment, no commitment</li>
 			</ul>
 			<p class="mt-8 text-sm text-ash">
 				Prefer to talk first? Call <a class="font-semibold text-white" href="tel:+919876543210">+91 98765 43210</a><br />
 				Mon–Sat, 6 AM – 9 PM · Andheri West, Mumbai
 			</p>
 			<figure class="mt-8 rounded-lg border border-line bg-coal p-5">
-				<p class="text-lg tracking-widest text-flame" aria-label="5 out of 5 stars">★★★★★</p>
+				<p class="text-lg tracking-widest text-ember" aria-label="5 out of 5 stars">★★★★★</p>
 				<blockquote class="mt-3 text-sm leading-relaxed text-bone/85">
 					“I had joined three gyms before and quit all of them. Arjun is the first coach who actually tracked
 					everything — my food, my sleep, my lifts. 14 kilos down, and I have kept it off for a year.”
 				</blockquote>
 				<figcaption class="mt-3 text-sm font-semibold text-white">
-					Rohan Sharma <span class="font-normal text-flame">· Lost 14 kg in 5 months</span>
+					Rohan Sharma <span class="font-normal text-ember">· Lost 14 kg in 5 months</span>
 				</figcaption>
 			</figure>
 		</div>
 
 		<div class="lg:col-span-3" use:reveal={120}>
 			{#if done}
-				<div class="rounded-lg border border-flame/50 bg-flame/10 p-8 text-center">
+				<div class="rounded-lg border border-flame/50 bg-flame-dark/10 p-8 text-center">
 					<p class="font-display text-4xl text-white uppercase">You are booked in 🎉</p>
 					<p class="mx-auto mt-3 max-w-md text-bone/85">
 						Thanks, {name}! Your free session is set for <strong class="text-white">{day} at {slot}</strong>. We will
@@ -126,7 +126,7 @@
 					</p>
 					<a
 						href="/programs"
-						class="mt-6 inline-block rounded-sm bg-flame px-6 py-3 text-sm font-bold tracking-widest text-white uppercase"
+						class="mt-6 inline-block rounded-sm bg-flame-dark px-6 py-3 text-sm font-bold tracking-widest text-white uppercase"
 					>
 						Browse programs
 					</a>
@@ -157,7 +157,7 @@
 								type="button"
 								onclick={() => (day = d)}
 								class="shrink-0 rounded-sm border px-4 py-3 text-sm font-semibold transition {day === d
-									? 'border-flame bg-flame text-white'
+									? 'border-flame bg-flame-dark text-white'
 									: 'border-line bg-ink text-bone/85 hover:border-white/40'}"
 								aria-pressed={day === d}
 							>
@@ -177,7 +177,7 @@
 								onclick={() => (slot = s)}
 								class="rounded-sm border px-3 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-35 {slot ===
 								s
-									? 'border-flame bg-flame text-white'
+									? 'border-flame bg-flame-dark text-white'
 									: 'border-line bg-ink text-bone/85 hover:border-white/40'}"
 								aria-pressed={slot === s}
 							>
@@ -216,7 +216,7 @@
 					<button
 						type="submit"
 						disabled={!slot}
-						class="mt-6 w-full rounded-sm bg-flame py-4 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark disabled:cursor-not-allowed disabled:opacity-50"
+						class="mt-6 w-full rounded-sm bg-flame-dark py-4 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep disabled:cursor-not-allowed disabled:opacity-50"
 					>
 						Confirm free session
 					</button>

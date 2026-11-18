@@ -24,7 +24,7 @@
 		<div class="mt-6 flex flex-wrap gap-3">
 			<a
 				href="/book?program=group-training"
-				class="rounded-sm bg-flame px-7 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-dark"
+				class="rounded-sm bg-flame-dark px-7 py-3.5 text-sm font-bold tracking-widest text-white uppercase transition hover:bg-flame-deep"
 			>
 				Join the challenge →
 			</a>
@@ -41,13 +41,13 @@
 		{#each challengeWeeks as w, i}
 			<article class="rounded-lg border border-line bg-coal p-6 sm:p-8" use:reveal={i * 80}>
 				<div class="flex items-baseline gap-3">
-					<span class="font-display text-4xl text-flame">Week {w.week}</span>
+					<span class="font-display text-4xl text-ember">Week {w.week}</span>
 					<h2 class="font-display text-2xl tracking-wide text-white uppercase sm:text-3xl">{w.title}</h2>
 				</div>
-				<p class="mt-1 text-xs font-bold tracking-widest text-flame uppercase">{w.focus}</p>
+				<p class="mt-1 text-xs font-bold tracking-widest text-ember uppercase">{w.focus}</p>
 				<ul class="mt-5 space-y-3 text-sm leading-relaxed text-bone/85">
 					{#each w.points as point}
-						<li class="flex gap-3"><span class="shrink-0 text-flame">✓</span> {point}</li>
+						<li class="flex gap-3"><span class="shrink-0 text-ember">✓</span> {point}</li>
 					{/each}
 				</ul>
 			</article>
@@ -57,9 +57,9 @@
 	<div class="mt-12 rounded-lg border border-line bg-coal p-8" use:reveal>
 		<h2 class="font-display text-3xl tracking-wide text-white uppercase">The rules</h2>
 		<ul class="mt-5 grid gap-3 text-sm leading-relaxed text-bone/85 sm:grid-cols-3">
-			<li class="flex gap-3"><span class="shrink-0 text-flame">01</span> Three sessions a week, minimum. Miss one, make it up — don’t skip it.</li>
-			<li class="flex gap-3"><span class="shrink-0 text-flame">02</span> Track everything: sessions, protein, steps, sleep. What gets measured gets done.</li>
-			<li class="flex gap-3"><span class="shrink-0 text-flame">03</span> No weighing yourself daily. Once a week, same day, same time.</li>
+			<li class="flex gap-3"><span class="shrink-0 text-ember">01</span> Three sessions a week, minimum. Miss one, make it up — don’t skip it.</li>
+			<li class="flex gap-3"><span class="shrink-0 text-ember">02</span> Track everything: sessions, protein, steps, sleep. What gets measured gets done.</li>
+			<li class="flex gap-3"><span class="shrink-0 text-ember">03</span> No weighing yourself daily. Once a week, same day, same time.</li>
 		</ul>
 	</div>
 </section>
